@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Original camera-resolution source photos (~40MB) — optimized WebP in images/opt/ is what ships
+images/*.jpg
+images/*.png
+
+# Internal brand documents — not for public hosting
+brand-guidelines.html
+brand-guidelines-print.html
+Ricardo-Events-Brand-Guidelines.pdf
+
+# Working files
+index.html.bak
+.claude/
+
+# OMC / agent operational state
+.omc/
+
+# Internal positioning brief — working doc, not site content
+PRODUCT.md
