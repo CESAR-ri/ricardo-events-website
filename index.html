@@ -464,6 +464,94 @@
     .btn-ig:hover { border-color: var(--blue); color: var(--blue); }
 
 
+
+    /* ══════════════════════════════════════════
+       WHATSAPP
+    ══════════════════════════════════════════ */
+    .btn-wa {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border-2);
+      gap: 12px;
+    }
+    .btn-wa:hover { border-color: var(--blue); color: var(--blue); }
+    .contacto-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* ══════════════════════════════════════════
+       MOBILE NAV
+    ══════════════════════════════════════════ */
+    .nav-burger {
+      display: none;
+      width: 36px; height: 36px;
+      align-items: center; justify-content: center;
+      background: transparent; border: 0; cursor: pointer;
+      padding: 0; position: relative; z-index: 1001;
+    }
+    .nav-burger span {
+      display: block; position: absolute;
+      width: 20px; height: 2px; border-radius: 2px;
+      background: var(--nav-hover);
+      transition: transform 0.28s ease, opacity 0.18s ease;
+    }
+    .nav-burger span:nth-child(1) { transform: translateY(-6px); }
+    .nav-burger span:nth-child(3) { transform: translateY(6px); }
+    body.menu-open .nav-burger span:nth-child(1) { transform: rotate(45deg); }
+    body.menu-open .nav-burger span:nth-child(2) { opacity: 0; }
+    body.menu-open .nav-burger span:nth-child(3) { transform: rotate(-45deg); }
+
+    /* nav creates its own stacking context (sticky, z-index 200), so the burger's
+       own z-index cannot escape it — lift the whole nav above the drawer instead. */
+    body.menu-open nav { z-index: 1001; }
+    .nav-drawer {
+      position: fixed; inset: 0; z-index: 1000;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 0 28px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    body.menu-open .nav-drawer { opacity: 1; visibility: visible; }
+    .nav-drawer ul { list-style: none; }
+    .nav-drawer li { overflow: hidden; }
+    .nav-drawer a.drawer-link {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(38px, 12vw, 60px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      line-height: 1.12;
+      color: var(--text);
+      text-decoration: none;
+      transform: translateY(105%);
+      transition: transform 0.42s cubic-bezier(.22,1,.36,1), color 0.2s;
+    }
+    body.menu-open .nav-drawer a.drawer-link { transform: translateY(0); }
+    .nav-drawer li:nth-child(1) a { transition-delay: 0.06s; }
+    .nav-drawer li:nth-child(2) a { transition-delay: 0.12s; }
+    .nav-drawer li:nth-child(3) a { transition-delay: 0.18s; }
+    .nav-drawer li:nth-child(4) a { transition-delay: 0.24s; }
+    .nav-drawer a.drawer-link:active { color: var(--blue); }
+    .drawer-foot {
+      margin-top: 40px;
+      display: flex; flex-direction: column; gap: 14px;
+      opacity: 0; transition: opacity 0.3s ease 0.3s;
+    }
+    body.menu-open .drawer-foot { opacity: 1; }
+    .drawer-foot .btn { align-self: flex-start; }
+    .drawer-meta {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-drawer, .nav-drawer a.drawer-link, .drawer-foot, .nav-burger span {
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+      .nav-drawer a.drawer-link { transform: none; }
+    }
+
     /* ══════════════════════════════════════════
        SECTION SHARED
     ══════════════════════════════════════════ */
@@ -885,6 +973,7 @@
       .service-row { flex-wrap: wrap; gap: 10px; }
       .service-name { min-width: 0; }
       .nav-links { display: none; }
+      .nav-burger { display: flex; }
     }
   </style>
 </head>
@@ -904,6 +993,10 @@
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Abrir menú"
+              aria-expanded="false" aria-controls="navDrawer">
+        <span></span><span></span><span></span>
+      </button>
       <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
         <!-- Sun icon (shown in dark mode to switch to light) -->
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -954,6 +1047,23 @@
   </div>
 
 </section>
+
+<!-- ░░ MOBILE DRAWER ░░ -->
+<div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Menú">
+  <ul>
+    <li><a class="drawer-link" href="#inicio">Inicio</a></li>
+    <li><a class="drawer-link" href="#eventos">Eventos</a></li>
+    <li><a class="drawer-link" href="#servicios">Servicios</a></li>
+    <li><a class="drawer-link" href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="drawer-foot">
+    <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
+       target="_blank" rel="noopener" class="btn btn-blue">
+      WhatsApp <span class="arrow">→</span>
+    </a>
+    <div class="drawer-meta">Santo Domingo · República Dominicana</div>
+  </div>
+</div>
 
 <!-- ░░ TICKER ░░ -->
 <div class="ticker-wrap">
@@ -1144,6 +1254,7 @@
       <div class="section-eyebrow">Contacto</div>
       <div class="section-title contacto-headline">Make it Happen.</div>
       <p>¿Tienes un proyecto, quieres ser patrocinador o simplemente quieres saber más? Escríbenos.</p>
+      <div class="contacto-actions">
       <a href="https://www.instagram.com/ricardo__events?igsh=MWs1amY0c2J0eWs2eg%3D%3D&utm_source=qr"
          target="_blank" rel="noopener" class="btn btn-ig">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1154,6 +1265,15 @@
         </svg>
         @ricardo__events
       </a>
+      <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
+         target="_blank" rel="noopener" class="btn btn-wa">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/>
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24a8.19 8.19 0 0 1 5.82 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.23 8.24z"/>
+        </svg>
+        WhatsApp
+      </a>
+      </div>
     </div>
     <div class="reveal d1">
       <form class="contact-form" id="contactForm" action="https://formspree.io/f/xykayjkq" method="POST">
@@ -1219,6 +1339,30 @@
     html.setAttribute('data-theme', next);
     localStorage.setItem('re-theme', next);
   });
+
+
+  // ── Mobile drawer ─────────────────────────
+  const burger = document.getElementById('navBurger');
+  const drawer = document.getElementById('navDrawer');
+  if (burger && drawer) {
+    const setMenu = open => {
+      document.body.classList.toggle('menu-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    };
+    burger.addEventListener('click', () =>
+      setMenu(!document.body.classList.contains('menu-open')));
+    drawer.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false);
+    });
+    // never leave the drawer stuck open when resizing back to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 600 && document.body.classList.contains('menu-open')) setMenu(false);
+    });
+  }
 
   // ── Scroll reveal — IO fallback for non-scroll-driven browsers ──
   if (!CSS.supports('animation-timeline', 'scroll()')) {
