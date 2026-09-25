@@ -266,9 +266,13 @@
       min-height: clamp(320px, 42vw, 480px); overflow: hidden;
     }
     .re-event-1 { top: 96px; margin-bottom: 24px; }
-    .re-event-2 { top: 114px; border-top: 1px solid rgba(255,255,255,0.14); }
+    .re-event-2 { top: 114px; margin-bottom: 24px; border-top: 1px solid rgba(255,255,255,0.14); }
+    .re-event-3 { top: 132px; border-top: 1px solid rgba(255,255,255,0.14); }
     .re-event-media { position: relative; overflow: hidden; min-height: 240px; }
     .re-event-img { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .re-event-img--poster { background-size: contain; background-repeat: no-repeat; background-color: var(--black); }
+    .re-event-link { display: inline-block; margin-top: 18px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); padding-bottom: 3px; }
+    .re-event-link:hover, .re-event-link:focus-visible { border-bottom-color: #fff; }
     .re-event-body {
       padding: clamp(26px,3vw,52px);
       display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
@@ -437,7 +441,7 @@
       .re-burger   { display: inline-flex; }
       .re-nav-cta  { display: none; }
       .re-hero-media { border-left: 0; border-top: 1px solid var(--black); }
-      .re-event-1, .re-event-2 { position: static; top: auto; }
+      .re-event-1, .re-event-2, .re-event-3 { position: static; top: auto; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -545,7 +549,7 @@
       <div class="re-eyebrow-blue" data-en="Portfolio">Portafolio</div>
       <h2 class="re-h2 re-rise" data-en="Events we produce">Eventos que producimos</h2>
     </div>
-    <div class="re-count" data-en="02 events · 2026">02 eventos · 2026</div>
+    <div class="re-count" data-en="03 events · 2026">03 eventos · 2026</div>
   </div>
 
   <div class="re-events">
@@ -568,12 +572,30 @@
 
     <article class="re-event re-event-2">
       <div class="re-event-media">
-        <div class="re-event-img" style="background-image:url('images/opt/padel-3.webp')"></div>
+        <div class="re-event-img re-event-img--poster" style="background-image:url('images/opt/mgp-1.webp')" role="img" aria-label="Maison Grand Prix — Mexico City Edition flyer"></div>
       </div>
       <div class="re-event-body">
         <div class="re-event-top">
           <span class="re-badge re-badge-next" data-en="Upcoming">Próximo</span>
           <span class="re-event-num">02</span>
+        </div>
+        <div>
+          <div class="re-event-date" data-en="November 1, 2026">Noviembre 1, 2026</div>
+          <h3 class="re-event-title">Maison Grand Prix · Mexico Edition</h3>
+          <p class="re-event-desc" data-en="Formula 1 Mexico City Grand Prix watch party at Cielo Room, Santo Domingo. Hosted by Geri Germán.">Watch party del Gran Premio de México de Fórmula 1 en el Cielo Room, Santo Domingo. Host: Geri Germán.</p>
+          <a class="re-event-link" href="https://tix.do/event/MaisonGrandPrixMexicoEdition-1" target="_blank" rel="noopener" data-en="Tickets on TIX →">Boletos en TIX →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="re-event re-event-3">
+      <div class="re-event-media">
+        <div class="re-event-img" style="background-image:url('images/opt/padel-3.webp')"></div>
+      </div>
+      <div class="re-event-body">
+        <div class="re-event-top">
+          <span class="re-badge re-badge-next" data-en="Upcoming">Próximo</span>
+          <span class="re-event-num">03</span>
         </div>
         <div>
           <div class="re-event-date" data-en="November 21–23, 2026">Noviembre 21–23, 2026</div>
