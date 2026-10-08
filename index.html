@@ -92,6 +92,7 @@
     }
     .re-logo { flex-shrink: 0; }
     .re-logo img { height: 32px; width: auto; }
+    .re-logo video { display: block; height: 32px; width: auto; aspect-ratio: 1000 / 238; }
     .re-navlinks { display: flex; gap: clamp(14px, 2vw, 32px); }
     .re-navlink {
       font-size: 11px; font-weight: 600; letter-spacing: 1.6px;
@@ -458,7 +459,11 @@
 <!-- ░░ NAV ░░ -->
 <nav class="re-nav">
   <div class="re-nav-inner">
-    <a href="#inicio" class="re-logo"><img src="images/opt/logo-light-crop.webp" alt="Ricardo Events" /></a>
+    <a href="#inicio" class="re-logo" aria-label="Ricardo Events">
+      <video autoplay muted loop playsinline preload="auto" poster="images/opt/logo-anim-poster.webp" aria-hidden="true">
+        <source src="images/logo-anim.mp4" type="video/mp4">
+      </video>
+    </a>
     <ul class="re-navlinks">
       <li><a href="#eventos"   class="re-navlink" data-en="Events">Eventos</a></li>
       <li><a href="#servicios" class="re-navlink" data-en="Services">Servicios</a></li>
@@ -732,6 +737,13 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  // nav logo animation: respect reduced-motion (the poster is the finished logo)
+  var nv = document.querySelector('.re-logo video');
+  if (nv && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { nv.removeAttribute('autoplay'); nv.pause(); }
+})();
+</script>
 <script>
 (function () {
   // ── ES / EN toggle ────────────────────────
