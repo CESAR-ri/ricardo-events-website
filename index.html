@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ricardo Events — Santo Domingo, RD</title>
-  <meta name="description" content="Ricardo Events es una productora de eventos con sede en Santo Domingo. Producción, logística y activaciones de marca para festivales y torneos deportivos en República Dominicana." />
+  <title>Ricardo Events — Productora de eventos y activaciones de marca · Santo Domingo</title>
+  <meta name="description" content="Productora de eventos en Santo Domingo: producción, logística y activaciones de marca. Creadores de Maison Grand Prix, la watch party de F1 del 1 de noviembre en Cielo Room." />
   <link rel="canonical" href="https://ricardo.com.do/" />
   <meta name="theme-color" content="#1A52C8" />
 
@@ -19,7 +19,7 @@
   <meta property="og:locale" content="es_DO" />
   <meta property="og:url" content="https://ricardo.com.do/" />
   <meta property="og:title" content="Ricardo Events — Productora de eventos, Santo Domingo" />
-  <meta property="og:description" content="Producción, logística y activaciones de marca para festivales y torneos deportivos en República Dominicana." />
+  <meta property="og:description" content="Producción, logística y activaciones de marca en República Dominicana. Creadores de Maison Grand Prix." />
   <meta property="og:image" content="https://ricardo.com.do/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -27,8 +27,58 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ricardo Events — Productora de eventos, Santo Domingo" />
-  <meta name="twitter:description" content="Producción, logística y activaciones de marca para festivales y torneos deportivos en República Dominicana." />
+  <meta name="twitter:description" content="Producción, logística y activaciones de marca en República Dominicana. Creadores de Maison Grand Prix." />
   <meta name="twitter:image" content="https://ricardo.com.do/og-image.jpg" />
+
+  <!-- The hero photo is a CSS background, so the preload scanner can't see it -->
+  <link rel="preload" as="image" href="images/opt/padel-4.webp" type="image/webp" />
+
+  <!-- Structured data. After 1 Nov the Event stays valid as a past event; no edit needed. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ricardo.com.do/#org",
+        "name": "Ricardo Events",
+        "url": "https://ricardo.com.do/",
+        "logo": "https://ricardo.com.do/images/opt/logo-light-crop.webp",
+        "description": "Productora de eventos en Santo Domingo: producción, logística y activaciones de marca.",
+        "foundingDate": "2025-11",
+        "telephone": "+1-809-280-8874",
+        "address": { "@type": "PostalAddress", "addressLocality": "Santo Domingo", "addressCountry": "DO" },
+        "areaServed": { "@type": "Country", "name": "República Dominicana" },
+        "sameAs": ["https://www.instagram.com/ricardo__events"]
+      },
+      {
+        "@type": "Event",
+        "name": "Maison Grand Prix · Mexico City Edition — F1 Watch Party",
+        "description": "Watch party del Gran Premio de México de Fórmula 1 en el Cielo Room: la carrera en pantalla LED gigante, DJ en vivo, dinámicas con Geri Germán y after party.",
+        "startDate": "2026-11-01T14:00:00-04:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "inLanguage": "es",
+        "image": "https://ricardo.com.do/images/opt/mgp-card.webp",
+        "location": {
+          "@type": "Place",
+          "name": "Cielo Room — Weston Suites",
+          "address": { "@type": "PostalAddress", "addressLocality": "Santo Domingo", "addressCountry": "DO" }
+        },
+        "organizer": { "@id": "https://ricardo.com.do/#org" },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://tix.do/event/MaisonGrandPrixMexicoEdition-1",
+          "price": "1000",
+          "priceCurrency": "DOP",
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2026-09-22",
+          "validThrough": "2026-11-01T14:00:00-04:00"
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,6 +117,32 @@
     img { display: block; max-width: 100%; }
     ul { list-style: none; margin: 0; padding: 0; }
     ::selection { background: var(--blue); color: #fff; }
+    /* date-driven states hide nodes with [hidden]; component display rules must not win */
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+    /* blue focus ring is invisible on blue and weak on black: use white there */
+    .re-announce :focus-visible, .re-cta-band :focus-visible, .re-event :focus-visible,
+    .re-contact :focus-visible, .re-footer :focus-visible { outline-color: #fff; }
+    .re-skip {
+      position: absolute; left: 12px; top: -60px; z-index: 2000;
+      padding: 12px 18px; background: var(--black); color: #fff;
+      font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
+    }
+    .re-skip:focus { top: 12px; }
+
+    /* ══════════════════════════════════════════
+       ANNOUNCEMENT BAR — hides itself after the event (data-until)
+    ══════════════════════════════════════════ */
+    .re-announce {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+      gap: 6px 14px; padding: 10px clamp(20px,3.5vw,48px);
+      background: var(--blue); color: #fff; text-align: center;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+    }
+    .re-announce-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; flex-shrink: 0; animation: rePulse 1.8s ease-in-out infinite; }
+    .re-announce a { border-bottom: 1px solid rgba(255,255,255,0.6); padding-bottom: 1px; white-space: nowrap; }
+    .re-announce a:hover { border-bottom-color: #fff; }
+    @keyframes rePulse { 50% { opacity: 0.35; } }
 
     @keyframes reRise    { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
     @keyframes reWipe    { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -103,7 +179,7 @@
     .re-lang { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; }
     .re-lang button {
       background: none; border: none; padding: 0; cursor: pointer;
-      font: inherit; color: #aaa; transition: color 0.2s;
+      font: inherit; color: #767676; transition: color 0.2s;
     }
     .re-lang button[aria-pressed="true"] { color: var(--black); }
     .re-lang-sep { color: #bbb; }
@@ -227,7 +303,7 @@
     .re-stat:last-child { border-right: 0; }
     .re-stat-num { font-family: var(--font-display); font-size: clamp(34px,3.4vw,52px); line-height: 0.9; }
     .re-stat-num.is-blue { color: var(--blue); }
-    .re-stat-label { font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #777; margin-top: 4px; }
+    .re-stat-label { font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #5f5f5f; margin-top: 4px; }
 
     /* ══════════════════════════════════════════
        MARQUEE
@@ -254,7 +330,7 @@
       font-size: clamp(44px, 6.4vw, 116px); line-height: 0.85;
       text-transform: uppercase; margin: 0;
     }
-    .re-count { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #999; }
+    .re-count { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6b6b6b; }
 
     /* ══════════════════════════════════════════
        EVENTS
@@ -270,7 +346,7 @@
     .re-event-2 { top: 114px; margin-bottom: 24px; border-top: 1px solid rgba(255,255,255,0.14); }
     .re-event-3 { top: 132px; border-top: 1px solid rgba(255,255,255,0.14); }
     .re-event-media { position: relative; overflow: hidden; min-height: 240px; }
-    .re-event-img { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .re-event-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
     .re-event-link { display: inline-block; margin-top: 18px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); padding-bottom: 3px; }
     .re-event-link:hover, .re-event-link:focus-visible { border-bottom-color: #fff; }
     .re-event-body {
@@ -288,7 +364,67 @@
       font-size: clamp(32px,3.6vw,60px); line-height: 0.9;
       text-transform: uppercase; margin: 0 0 14px;
     }
-    .re-event-desc { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.62); margin: 0; max-width: 420px; }
+    .re-event-desc { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.68); margin: 0; max-width: 440px; }
+
+    /* MGP — our own event: experience chips, ticket/table CTAs, sponsor band */
+    .re-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
+    .re-chip {
+      padding: 7px 12px; border: 1px solid rgba(255,255,255,0.22);
+      font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #fff;
+    }
+    .re-event-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .re-btn-blue { padding: 15px 24px; background: var(--blue); color: #fff; }
+    .re-btn-blue:hover { background: #fff; color: var(--black); }
+    .re-btn-line { padding: 14px 22px; border: 1.5px solid rgba(255,255,255,0.4); color: #fff; }
+    .re-btn-line:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    /* Cream = the MGP flyer's own band colour (#f2e8d5); the Factor and Calabax files are
+       crops from that approved flyer, so they sit seamlessly on it. Logos are never redrawn. */
+    /* A full-span child stops auto-fit from collapsing its empty tracks (it would leave
+       two blank columns at desktop), so the MGP card gets explicit columns. */
+    .re-event-2 { grid-template-columns: 1fr 1fr; }
+    .re-sponsors {
+      grid-column: 1 / -1;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 14px clamp(22px,3vw,44px);
+      padding: 18px clamp(26px,3vw,52px); background: #f2e8d5; color: #4d5244;
+    }
+    .re-sponsors-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-right: 4px; }
+    .re-sponsors ul { display: flex; flex-wrap: wrap; align-items: center; gap: 14px clamp(22px,3vw,40px); }
+    .re-sponsors img { width: auto; }
+    .re-sp-cadillac { height: 40px; }
+    .re-sp-weston   { height: 40px; }
+    .re-sp-factor   { height: 34px; }
+    .re-sp-calabax  { height: 40px; }
+    .re-sp-kinnox   { height: 22px; }
+
+    /* ══════════════════════════════════════════
+       BRAND ACTIVATIONS
+    ══════════════════════════════════════════ */
+    .re-act-sec { border-top: 1px solid var(--black); padding: clamp(64px,9vh,110px) clamp(20px,3.5vw,48px); }
+    .re-act {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+      gap: clamp(32px,5vw,80px); align-items: center;
+    }
+    .re-act-lead { font-size: clamp(15px,1.15vw,18px); line-height: 1.7; color: #444; margin: 22px 0 0; max-width: 540px; text-wrap: pretty; }
+    .re-case { margin-top: 30px; padding-top: 22px; border-top: 1px solid #ddd; }
+    .re-case-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 10px; }
+    .re-case-label { font-size: 11px; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase; color: var(--blue); }
+    .re-badge-ink { background: var(--black); color: #fff; }
+    .re-badge-outline { border: 1px solid var(--black); color: var(--black); }
+    .re-case h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: clamp(30px,3vw,48px); line-height: 0.92; text-transform: uppercase; margin: 0 0 12px;
+    }
+    .re-case p { font-size: 14.5px; line-height: 1.7; color: #444; margin: 0; max-width: 540px; }
+    .re-act-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 1px; background: #ddd; border: 1px solid #ddd; margin-top: 26px; }
+    .re-act-step { background: #fff; padding: 16px 18px; }
+    .re-act-step b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 15px; letter-spacing: 1.5px; color: var(--blue); margin-bottom: 4px; }
+    .re-act-step span { font-size: 13px; line-height: 1.5; color: #333; }
+    .re-act-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .re-act-figure { margin: 0; }
+    /* the screenshot is rendered at exactly 16:10, so this slot never crops or letterboxes */
+    .re-act-figure img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid var(--black); }
+    .re-act-figure figcaption { margin-top: 10px; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #5f5f5f; }
 
     /* ══════════════════════════════════════════
        SERVICES
@@ -303,7 +439,8 @@
     }
     .re-services-intro { font-size: 15px; line-height: 1.7; color: #555; max-width: 380px; margin: 0; text-wrap: pretty; }
     .re-services {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      /* at most 3 columns: 6 cells always fill 3x2, 2x3 or 1x6, never leaving empty grey slots */
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, max(300px, calc((100% - 2px) / 3))), 1fr));
       gap: 1px; background: #ccc; border: 1px solid #ccc;
     }
     .re-service {
@@ -384,7 +521,7 @@
     .re-btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
     .re-contact-meta {
       margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.12);
-      font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(255,255,255,0.4);
+      font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(255,255,255,0.62);
     }
     .re-form { display: flex; flex-direction: column; gap: 16px; }
     .re-form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
@@ -426,7 +563,10 @@
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
     }
     .re-footer img { height: 38px; width: auto; }
-    .re-footer-copy { font-size: 12px; color: rgba(255,255,255,0.32); }
+    .re-footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
+    .re-footer-links { display: flex; gap: 20px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; }
+    .re-footer-links a { color: rgba(255,255,255,0.75); }
+    .re-footer-links a:hover { color: #fff; }
 
     /* ══════════════════════════════════════════
        SCROLL REVEAL
@@ -436,12 +576,22 @@
     /* ══════════════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════════════ */
-    @media (max-width: 699px) {
+    /* four links + language + CTA need ~900px; below that the burger takes over */
+    @media (max-width: 959px) {
       .re-navlinks { display: none; }
       .re-burger   { display: inline-flex; }
       .re-nav-cta  { display: none; }
+    }
+    @media (max-width: 699px) {
       .re-hero-media { border-left: 0; border-top: 1px solid var(--black); }
       .re-event-1, .re-event-2, .re-event-3 { position: static; top: auto; }
+    }
+    @media (max-width: 599px) {
+      .re-event-2 { grid-template-columns: 1fr; }
+    }
+    /* the MGP card is taller than a short viewport; pinned, its sponsor band would never show */
+    @media (max-height: 820px) {
+      .re-event-2 { position: static; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -456,6 +606,18 @@
 </head>
 <body>
 
+<a href="#main" class="re-skip" data-en="Skip to content">Saltar al contenido</a>
+
+<!-- ░░ ANNOUNCEMENT ░░
+     Date-driven: anything with data-until flips to its "past" state on its own once that
+     moment passes (see the script at the bottom). .only-upcoming hides, .only-past shows.
+     To flip early by hand, set data-until to a date that has already passed. -->
+<div class="re-announce only-upcoming" data-until="2026-11-02T00:00:00-04:00">
+  <span class="re-announce-dot" aria-hidden="true"></span>
+  <span data-en="Maison Grand Prix · Nov 1 · Cielo Room">Maison Grand Prix · 1 Nov · Cielo Room</span>
+  <a href="https://tix.do/event/MaisonGrandPrixMexicoEdition-1" target="_blank" rel="noopener" data-en="Tickets on TIX →">Boletos en TIX →</a>
+</div>
+
 <!-- ░░ NAV ░░ -->
 <nav class="re-nav">
   <div class="re-nav-inner">
@@ -466,6 +628,7 @@
     </a>
     <ul class="re-navlinks">
       <li><a href="#eventos"   class="re-navlink" data-en="Events">Eventos</a></li>
+      <li><a href="#activaciones" class="re-navlink" data-en="Activations">Activaciones</a></li>
       <li><a href="#servicios" class="re-navlink" data-en="Services">Servicios</a></li>
       <li><a href="#contacto"  class="re-navlink" data-en="Contact">Contacto</a></li>
     </ul>
@@ -482,14 +645,16 @@
 </nav>
 
 <!-- ░░ MOBILE DRAWER ░░ -->
-<div class="re-drawer" id="reDrawer" role="dialog" aria-modal="true" aria-label="Menú">
+<div class="re-drawer" id="reDrawer" role="dialog" aria-modal="true" aria-label="Menú" data-en-aria="Menu">
   <a href="#eventos"   class="re-drawer-link" data-drawer-link data-en="Events">Eventos</a>
+  <a href="#activaciones" class="re-drawer-link" data-drawer-link data-en="Activations">Activaciones</a>
   <a href="#servicios" class="re-drawer-link" data-drawer-link data-en="Services">Servicios</a>
   <a href="#contacto"  class="re-drawer-link" data-drawer-link data-en="Contact">Contacto</a>
   <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
      target="_blank" rel="noopener" class="re-drawer-wa" data-drawer-link>WhatsApp</a>
 </div>
 
+<main id="main">
 <!-- ░░ HERO ░░ -->
 <section id="inicio" class="re-hero">
   <div class="re-hero-grid">
@@ -502,7 +667,7 @@
         <span data-en="We create">Creamos</span>
         <span class="re-h1-underlined" data-en="Experiences.">Experiencias.<span class="re-underline"></span></span>
       </h1>
-      <p class="re-lead" data-en="Production, logistics and brand activations for festivals and sports tournaments in the Dominican Republic.">Producción, logística y activaciones de marca para festivales y torneos deportivos en República Dominicana.</p>
+      <p class="re-lead" data-en="Production, logistics and brand activations in the Dominican Republic. Creators of Maison Grand Prix.">Producción, logística y activaciones de marca en República Dominicana. Creadores de Maison Grand Prix.</p>
       <div class="re-hero-ctas">
         <a href="#contacto" class="re-btn re-btn-black" data-en="Request a proposal →">Solicitar propuesta →</a>
         <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
@@ -518,12 +683,12 @@
 
   <div class="re-stats">
     <div class="re-stat">
-      <div class="re-stat-num">2</div>
-      <div class="re-stat-label" data-en="Padel Fest editions · our logistics">Ediciones de Padel Fest · Logística</div>
+      <div class="re-stat-num">200</div>
+      <div class="re-stat-label" data-en="Players · Padel Fest Santo Domingo · our logistics">Participantes · Padel Fest Santo Domingo · Logística</div>
     </div>
     <div class="re-stat">
-      <div class="re-stat-num">200</div>
-      <div class="re-stat-label" data-en="Players · Padel Fest Santo Domingo">Participantes · Padel Fest Santo Domingo</div>
+      <div class="re-stat-num" data-en="Nov 1">1 Nov</div>
+      <div class="re-stat-label" data-en="Maison Grand Prix · our own event">Maison Grand Prix · Evento propio</div>
     </div>
     <div class="re-stat">
       <div class="re-stat-num is-blue" data-en="Full">Integral</div>
@@ -536,13 +701,15 @@
 <div class="re-marquee">
   <div class="re-marquee-inner">
     <span class="re-marquee-item">Maison Grand Prix</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item">Santo Domingo</span><span class="re-marquee-sep">✦</span>
     <span class="re-marquee-item" data-en="Production">Producción</span><span class="re-marquee-sep">✦</span>
     <span class="re-marquee-item" data-en="Logistics">Logística</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item">Maison Grand Prix</span><span class="re-marquee-sep">✦</span>
+    <span class="re-marquee-item" data-en="Brand activations">Activaciones de marca</span><span class="re-marquee-sep">✦</span>
     <span class="re-marquee-item">Santo Domingo</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" data-en="Production">Producción</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" data-en="Logistics">Logística</span><span class="re-marquee-sep">✦</span>
+    <span class="re-marquee-item" aria-hidden="true">Maison Grand Prix</span><span class="re-marquee-sep">✦</span>
+    <span class="re-marquee-item" aria-hidden="true" data-en="Production">Producción</span><span class="re-marquee-sep">✦</span>
+    <span class="re-marquee-item" aria-hidden="true" data-en="Logistics">Logística</span><span class="re-marquee-sep">✦</span>
+    <span class="re-marquee-item" aria-hidden="true" data-en="Brand activations">Activaciones de marca</span><span class="re-marquee-sep">✦</span>
+    <span class="re-marquee-item" aria-hidden="true">Santo Domingo</span><span class="re-marquee-sep">✦</span>
   </div>
 </div>
 
@@ -559,7 +726,7 @@
   <div class="re-events">
     <article class="re-event re-event-1">
       <div class="re-event-media">
-        <div class="re-event-img" style="background-image:url('images/opt/padel-1.webp')"></div>
+        <img class="re-event-img" src="images/opt/padel-1.webp" alt="Padel Fest Santo Domingo, mayo 2026" loading="lazy" decoding="async" />
       </div>
       <div class="re-event-body">
         <div class="re-event-top">
@@ -574,31 +741,54 @@
       </div>
     </article>
 
-    <article class="re-event re-event-2">
+    <!-- MGP: flips to "Realizado" by itself on 2 Nov (data-until). -->
+    <article class="re-event re-event-2" data-until="2026-11-02T00:00:00-04:00">
       <div class="re-event-media">
-        <div class="re-event-img" style="background-image:url('images/opt/mgp-card.webp')" role="img" aria-label="Maison Grand Prix — Mexico City Edition, F1 watch party"></div>
+        <img class="re-event-img" src="images/opt/mgp-card.webp" alt="Maison Grand Prix — Mexico City Edition, F1 watch party" loading="lazy" decoding="async" />
       </div>
       <div class="re-event-body">
         <div class="re-event-top">
-          <span class="re-badge re-badge-next" data-en="Upcoming">Próximo</span>
+          <span class="re-badge re-badge-next only-upcoming" data-en="Upcoming · Our own event">Próximo · Evento propio</span>
+          <span class="re-badge re-badge-done only-past" hidden data-en="Delivered · Our own event">Realizado · Evento propio</span>
           <span class="re-event-num">02</span>
         </div>
         <div>
-          <div class="re-event-date" data-en="November 1, 2026">Noviembre 1, 2026</div>
-          <h3 class="re-event-title">Maison Grand Prix · Mexico Edition</h3>
-          <p class="re-event-desc" data-en="Our own event. Formula 1 Mexico City Grand Prix watch party at Cielo Room, Santo Domingo. Hosted by Geri Germán.">Evento propio. Watch party del Gran Premio de México de Fórmula 1 en el Cielo Room, Santo Domingo. Host: Geri Germán.</p>
-          <a class="re-event-link" href="https://tix.do/event/MaisonGrandPrixMexicoEdition-1" target="_blank" rel="noopener" data-en="Tickets on TIX →">Boletos en TIX →</a>
+          <div class="re-event-date" data-en="November 1, 2026 · 2:00 PM · Cielo Room">Noviembre 1, 2026 · 2:00 PM · Cielo Room</div>
+          <h3 class="re-event-title">Maison Grand Prix · Mexico City Edition</h3>
+          <p class="re-event-desc" data-en="The Formula 1 Mexico City Grand Prix watch party at Cielo Room, Weston Suites, Santo Domingo. Created and produced by Ricardo Events.">La watch party del Gran Premio de México de Fórmula 1 en el Cielo Room del Weston Suites, Santo Domingo. Creada y producida por Ricardo Events.</p>
+          <ul class="re-chips" aria-label="La experiencia" data-en-aria="The experience">
+            <li class="re-chip" data-en="The race on a giant LED screen">La carrera en pantalla LED gigante</li>
+            <li class="re-chip" data-en="Live DJ">DJ en vivo</li>
+            <li class="re-chip" data-en="Games with Geri Germán">Dinámicas con Geri Germán</li>
+            <li class="re-chip">After party</li>
+          </ul>
+          <div class="re-event-ctas only-upcoming">
+            <a class="re-btn re-btn-blue" href="https://tix.do/event/MaisonGrandPrixMexicoEdition-1" target="_blank" rel="noopener" data-en="Tickets RD$1,000 · TIX →">Boletos RD$1,000 · TIX →</a>
+            <a class="re-btn re-btn-line" href="https://wa.me/18092808874?text=Hola%2C%20quiero%20reservar%20una%20mesa%20para%20Maison%20Grand%20Prix%20%281%20de%20noviembre%29." target="_blank" rel="noopener" data-en="Book a table · WhatsApp">Reservar mesa · WhatsApp</a>
+          </div>
+          <a class="re-event-link only-past" hidden href="#activaciones" data-en="See the Cadillac activation →">Ver la activación con Cadillac →</a>
         </div>
+      </div>
+      <div class="re-sponsors">
+        <span class="re-sponsors-label">Powered by</span>
+        <ul>
+          <li><img class="re-sp-cadillac" src="images/opt/sponsors/cadillac.webp" alt="Cadillac" width="113" height="48" loading="lazy" decoding="async" /></li>
+          <li><img class="re-sp-weston" src="images/opt/sponsors/weston.webp" alt="Weston Hotel" width="100" height="48" loading="lazy" decoding="async" /></li>
+          <li><img class="re-sp-factor" src="images/opt/sponsors/factor.webp" alt="Factor de Éxito" width="192" height="54" loading="lazy" decoding="async" /></li>
+          <li><img class="re-sp-calabax" src="images/opt/sponsors/calabax.webp" alt="Calabax · Montajes y eventos" width="106" height="64" loading="lazy" decoding="async" /></li>
+          <li><img class="re-sp-kinnox" src="images/opt/sponsors/kinnox.webp" alt="Kinnox" width="152" height="36" loading="lazy" decoding="async" /></li>
+        </ul>
       </div>
     </article>
 
-    <article class="re-event re-event-3">
+    <article class="re-event re-event-3" data-until="2026-11-24T00:00:00-04:00">
       <div class="re-event-media">
-        <div class="re-event-img" style="background-image:url('images/opt/padel-3.webp')"></div>
+        <img class="re-event-img" src="images/opt/padel-3.webp" alt="Padel Fest Santo Domingo" loading="lazy" decoding="async" />
       </div>
       <div class="re-event-body">
         <div class="re-event-top">
-          <span class="re-badge re-badge-next" data-en="Upcoming">Próximo</span>
+          <span class="re-badge re-badge-next only-upcoming" data-en="Upcoming">Próximo</span>
+          <span class="re-badge re-badge-done only-past" hidden data-en="Delivered">Realizado</span>
           <span class="re-event-num">03</span>
         </div>
         <div>
@@ -608,6 +798,43 @@
         </div>
       </div>
     </article>
+  </div>
+</section>
+
+<!-- ░░ ACTIVACIONES ░░ -->
+<section id="activaciones" class="re-act-sec" data-until="2026-11-02T00:00:00-04:00">
+  <div class="re-act">
+    <div>
+      <div class="re-eyebrow-blue" data-en="Brand activations">Activaciones de marca</div>
+      <h2 class="re-h2 re-rise" data-en="Brands people play with">Marcas que se juegan</h2>
+      <p class="re-act-lead" data-en="We design activations that put a brand in people's hands: an idea tied to the brand, the piece built from scratch and the operation on the day, inside our events or anyone else's.">Diseñamos activaciones que ponen la marca en manos del público: una idea ligada a la marca, la pieza construida desde cero y la operación el día del evento, dentro de nuestros eventos o de otros.</p>
+
+      <div class="re-case">
+        <div class="re-case-top">
+          <span class="re-case-label" data-en="Case · Cadillac × Maison Grand Prix">Caso · Cadillac × Maison Grand Prix</span>
+          <span class="re-badge re-badge-ink only-upcoming" data-en="Nov 1, 2026">1 Nov 2026</span>
+          <span class="re-badge re-badge-outline only-past" hidden data-en="Delivered · Nov 2026">Realizado · Nov 2026</span>
+        </div>
+        <h3>Lights Out Challenge</h3>
+        <p data-en="For Cadillac at Maison Grand Prix we built the Lights Out Challenge: the Formula 1 start turned into a reflex game. The lights come on, they go out, and whoever reacts fastest climbs a live leaderboard, all in Cadillac's colours.">Para Cadillac en Maison Grand Prix creamos el Lights Out Challenge: la largada de la Fórmula 1 convertida en un reto de reflejos. Las luces se encienden, se apagan, y quien reaccione más rápido sube a un ranking en vivo, todo con los colores de Cadillac.</p>
+      </div>
+
+      <div class="re-act-steps">
+        <div class="re-act-step"><b data-en="01 · Idea">01 · Idea</b><span data-en="A concept that only makes sense for that brand.">Un concepto que solo tiene sentido para esa marca.</span></div>
+        <div class="re-act-step"><b data-en="02 · Build">02 · Producción</b><span data-en="The game or the piece, designed and built to measure.">El juego o la pieza, diseñados y construidos a medida.</span></div>
+        <div class="re-act-step"><b data-en="03 · On site">03 · En sitio</b><span data-en="We run it on the day, with the brand front and centre.">La operamos el día del evento, con la marca al frente.</span></div>
+      </div>
+
+      <div class="re-act-ctas">
+        <a href="#contacto" class="re-btn re-btn-black" data-en="Plan an activation →">Cotizar una activación →</a>
+      </div>
+    </div>
+
+    <figure class="re-act-figure re-rise">
+      <img src="images/opt/lights-out.webp" width="1600" height="1000" loading="lazy" decoding="async"
+           alt="Pantalla del Lights Out Challenge: cinco columnas de luces blancas encendidas, ranking de los más rápidos y el logo de Cadillac" />
+      <figcaption data-en="Lights Out Challenge · the game screen">Lights Out Challenge · pantalla del juego</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -645,8 +872,8 @@
       </div>
       <div class="re-service re-rise">
         <span class="re-service-num">05</span>
-        <h3 data-en="Brand activations">Brand activations</h3>
-        <p data-en="Experiences that connect a brand with its audience, inside or outside an event.">Experiencias que conectan la marca con su audiencia, dentro o fuera de un evento.</p>
+        <h3 data-en="Brand activations">Activaciones de marca</h3>
+        <p data-en="Experiences that connect a brand with its audience, inside or outside an event. Case: Cadillac × Maison Grand Prix.">Experiencias que conectan la marca con su audiencia, dentro o fuera de un evento. Caso: Cadillac × Maison Grand Prix.</p>
       </div>
       <a href="#contacto" class="re-service-cta re-rise">
         <span class="re-service-num">06</span>
@@ -674,7 +901,7 @@
     <div>
       <div class="re-contact-eyebrow" data-en="Contact">Contacto</div>
       <h2 class="re-contact-h2 re-rise" data-en="Tell us about the event. We reply with a proposal.">Cuéntanos del evento. Te respondemos con una propuesta.</h2>
-      <p class="re-contact-p" data-en="Production, logistics, brand activations or general enquiries. The more detail, the better the proposal.">Producción, logística, brand activations o información general. Mientras más detalle, mejor la propuesta.</p>
+      <p class="re-contact-p" data-en="Production, logistics, brand activations or general enquiries. The more detail, the better the proposal.">Producción, logística, activaciones de marca o información general. Mientras más detalle, mejor la propuesta.</p>
       <div class="re-contact-actions">
         <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
            target="_blank" rel="noopener" class="re-btn re-btn-ghost">WhatsApp</a>
@@ -704,10 +931,10 @@
             <label for="f-tipo" data-en="Enquiry type">Tipo de consulta</label>
             <select id="f-tipo" name="tipo">
               <option value="" data-en="Select...">Seleccionar...</option>
-              <option data-en="Event production">Producción de evento</option>
-              <option data-en="Logistics">Logística</option>
-              <option data-en="Brand activation">Brand activation</option>
-              <option data-en="General information">Información general</option>
+              <option value="Producción de evento" data-en="Event production">Producción de evento</option>
+              <option value="Logística" data-en="Logistics">Logística</option>
+              <option value="Activación de marca" data-en="Brand activation">Activación de marca</option>
+              <option value="Información general" data-en="General information">Información general</option>
             </select>
           </div>
           <div class="re-field">
@@ -728,12 +955,17 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- ░░ FOOTER ░░ -->
 <footer class="re-footer">
   <div class="re-footer-inner">
-    <img src="images/opt/logo-dark-crop.webp" alt="Ricardo Events" />
-    <div class="re-footer-copy">© 2026 Ricardo Events · Santo Domingo, República Dominicana</div>
+    <img src="images/opt/logo-dark-crop.webp" alt="Ricardo Events" loading="lazy" decoding="async" />
+    <div class="re-footer-links">
+      <a href="https://www.instagram.com/ricardo__events" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="re-footer-copy">© <span id="reYear">2026</span> Ricardo Events · Santo Domingo, República Dominicana</div>
   </div>
 </footer>
 
@@ -746,6 +978,23 @@
 </script>
 <script>
 (function () {
+  // ── Date-driven states ────────────────────
+  // Any [data-until] block flips to "past" once that moment passes: its .only-upcoming
+  // nodes (and the block itself, if it carries the class) hide, its .only-past nodes show.
+  // Upcoming is the no-JS default, so the static HTML stays correct until the event.
+  var now = Date.now();
+  document.querySelectorAll('[data-until]').forEach(function (block) {
+    var until = Date.parse(block.getAttribute('data-until'));
+    if (isNaN(until) || now < until) return;
+    block.classList.add('is-past');
+    var up = Array.prototype.slice.call(block.querySelectorAll('.only-upcoming'));
+    if (block.classList.contains('only-upcoming')) up.push(block);
+    up.forEach(function (el) { el.hidden = true; });
+    block.querySelectorAll('.only-past').forEach(function (el) { el.hidden = false; });
+  });
+  var yr = document.getElementById('reYear');
+  if (yr) yr.textContent = String(new Date().getFullYear());
+
   // ── ES / EN toggle ────────────────────────
   var langNodes = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
   function setLang(lang) {
@@ -763,6 +1012,15 @@
       b.setAttribute('aria-pressed', b.dataset.langBtn === lang ? 'true' : 'false');
     });
     document.documentElement.lang = lang;
+    document.querySelectorAll('[data-en-aria]').forEach(function (el) {
+      if (!el.dataset.esAria) el.dataset.esAria = el.getAttribute('aria-label');
+      el.setAttribute('aria-label', lang === 'en' ? el.dataset.enAria : el.dataset.esAria);
+    });
+    var bg = document.getElementById('reBurger');
+    if (bg) {
+      var isOpen = document.body.classList.contains('re-menu-open');
+      bg.setAttribute('aria-label', lang === 'en' ? (isOpen ? 'Close menu' : 'Open menu') : (isOpen ? 'Cerrar menú' : 'Abrir menú'));
+    }
     try { localStorage.setItem('re-lang', lang); } catch (e) {}
   }
   document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
@@ -782,7 +1040,8 @@
       document.body.style.overflow = open ? 'hidden' : '';
       burger.innerHTML = open ? '&times;' : '&#8801;';
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      var en = document.documentElement.lang === 'en';
+      burger.setAttribute('aria-label', open ? (en ? 'Close menu' : 'Cerrar menú') : (en ? 'Open menu' : 'Abrir menú'));
     };
     burger.addEventListener('click', function () {
       setOpen(!document.body.classList.contains('re-menu-open'));
@@ -794,7 +1053,7 @@
       if (e.key === 'Escape' && document.body.classList.contains('re-menu-open')) setOpen(false);
     });
     window.addEventListener('resize', function () {
-      if (window.innerWidth >= 700 && document.body.classList.contains('re-menu-open')) setOpen(false);
+      if (window.innerWidth >= 960 && document.body.classList.contains('re-menu-open')) setOpen(false);
     });
   }
 
@@ -820,7 +1079,8 @@
       var btn = form.querySelector('.re-submit');
       var label = btn.innerHTML;
       btn.disabled = true;
-      btn.textContent = 'Enviando...';
+      var en = document.documentElement.lang === 'en';
+      btn.textContent = en ? 'Sending...' : 'Enviando...';
       try {
         var res = await fetch(form.action, {
           method: 'POST',
@@ -832,7 +1092,8 @@
       } catch (err) {
         btn.disabled = false;
         btn.innerHTML = label;
-        alert('Hubo un error. Escríbenos por WhatsApp e intentamos de nuevo.');
+        alert(en ? 'Something went wrong. Message us on WhatsApp and we will sort it out.'
+                 : 'Hubo un error. Escríbenos por WhatsApp e intentamos de nuevo.');
       }
     });
   }
