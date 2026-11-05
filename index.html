@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ricardo Events — Productora de eventos y activaciones de marca · Santo Domingo</title>
-  <meta name="description" content="Productora de eventos en Santo Domingo: producción, logística y activaciones de marca. Creadores de Maison Grand Prix, la watch party de F1 del 1 de noviembre en Cielo Room." />
+  <meta name="description" content="Productora de eventos en Santo Domingo: logística, producción y activaciones de marca para empresas y organizadores. Creadores de Maison Grand Prix." />
   <link rel="canonical" href="https://ricardo.com.do/" />
   <meta name="theme-color" content="#004AAD" />
 
@@ -33,7 +33,7 @@
   <!-- The hero photo is a CSS background, so the preload scanner can't see it -->
   <link rel="preload" as="image" href="images/opt/padel-4.webp" type="image/webp" />
 
-  <!-- Structured data. After 1 Nov the Event stays valid as a past event; no edit needed. -->
+  <!-- Structured data. MGP stays listed as a past event. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,22 +59,13 @@
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "inLanguage": "es",
-        "image": "https://ricardo.com.do/images/opt/mgp-card.webp",
+        "image": "https://ricardo.com.do/images/opt/mgp-entrada.webp",
         "location": {
           "@type": "Place",
           "name": "Cielo Room — Weston Suites",
           "address": { "@type": "PostalAddress", "addressLocality": "Santo Domingo", "addressCountry": "DO" }
         },
-        "organizer": { "@id": "https://ricardo.com.do/#org" },
-        "offers": {
-          "@type": "Offer",
-          "url": "https://tix.do/event/MaisonGrandPrixMexicoEdition-1",
-          "price": "1000",
-          "priceCurrency": "DOP",
-          "availability": "https://schema.org/InStock",
-          "validFrom": "2026-09-22",
-          "validThrough": "2026-11-01T14:00:00-04:00"
-        }
+        "organizer": { "@id": "https://ricardo.com.do/#org" }
       }
     ]
   }
@@ -377,24 +368,6 @@
     .re-btn-blue:hover { background: #fff; color: var(--black); }
     .re-btn-line { padding: 14px 22px; border: 1.5px solid rgba(255,255,255,0.4); color: #fff; }
     .re-btn-line:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
-    /* Cream = the MGP flyer's own band colour (#f2e8d5); the Factor and Calabax files are
-       crops from that approved flyer, so they sit seamlessly on it. Logos are never redrawn. */
-    /* A full-span child stops auto-fit from collapsing its empty tracks (it would leave
-       two blank columns at desktop), so the MGP card gets explicit columns. */
-    .re-event-2 { grid-template-columns: 1fr 1fr; }
-    .re-sponsors {
-      grid-column: 1 / -1;
-      display: flex; flex-wrap: wrap; align-items: center; gap: 14px clamp(22px,3vw,44px);
-      padding: 18px clamp(26px,3vw,52px); background: #f2e8d5; color: #4d5244;
-    }
-    .re-sponsors-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-right: 4px; }
-    .re-sponsors ul { display: flex; flex-wrap: wrap; align-items: center; gap: 14px clamp(22px,3vw,40px); }
-    .re-sponsors img { width: auto; }
-    .re-sp-cadillac { height: 40px; }
-    .re-sp-weston   { height: 40px; }
-    .re-sp-factor   { height: 34px; }
-    .re-sp-calabax  { height: 40px; }
-    .re-sp-kinnox   { height: 22px; }
 
     /* ══════════════════════════════════════════
        BRAND ACTIVATIONS
@@ -423,7 +396,7 @@
     .re-act-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .re-act-figure { margin: 0; }
     /* the screenshot is rendered at exactly 16:10, so this slot never crops or letterboxes */
-    .re-act-figure img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid var(--black); }
+    .re-act-figure img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--black); }
     .re-act-figure figcaption { margin-top: 10px; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #5f5f5f; }
 
     /* ══════════════════════════════════════════
@@ -437,6 +410,14 @@
       display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
       gap: 24px; margin-bottom: clamp(28px,4vh,52px);
     }
+    /* Process: how a client job runs, same grid language as the activation steps */
+    .re-process-sec { padding: clamp(64px,9vh,110px) clamp(20px,3.5vw,48px); border-top: 1px solid var(--black); }
+    .re-process-inner { max-width: var(--max-w); margin: 0 auto; }
+    .re-process { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 1px; background: var(--black); border: 1px solid var(--black); margin-top: clamp(28px,4vw,48px); }
+    .re-process-step { background: #fff; padding: clamp(22px,2.4vw,34px); }
+    .re-process-step b { display: block; font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,2.4vw,36px); line-height: 1; color: var(--blue); margin-bottom: 10px; }
+    .re-process-step h3 { font-family: var(--font-display); font-weight: 400; font-size: 22px; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 8px; }
+    .re-process-step p { font-size: 14px; line-height: 1.6; color: #444; margin: 0; }
     .re-services-intro { font-size: 15px; line-height: 1.7; color: #555; max-width: 380px; margin: 0; text-wrap: pretty; }
     .re-services {
       /* at most 3 columns: 6 cells always fill 3x2, 2x3 or 1x6, never leaving empty grey slots */
@@ -608,16 +589,6 @@
 
 <a href="#main" class="re-skip" data-en="Skip to content">Saltar al contenido</a>
 
-<!-- ░░ ANNOUNCEMENT ░░
-     Date-driven: anything with data-until flips to its "past" state on its own once that
-     moment passes (see the script at the bottom). .only-upcoming hides, .only-past shows.
-     To flip early by hand, set data-until to a date that has already passed. -->
-<div class="re-announce only-upcoming" data-until="2026-11-02T00:00:00-04:00">
-  <span class="re-announce-dot" aria-hidden="true"></span>
-  <span data-en="Maison Grand Prix · Nov 1 · Cielo Room">Maison Grand Prix · 1 Nov · Cielo Room</span>
-  <a href="https://tix.do/event/MaisonGrandPrixMexicoEdition-1" target="_blank" rel="noopener" data-en="Tickets on TIX →">Boletos en TIX →</a>
-</div>
-
 <!-- ░░ NAV ░░ -->
 <nav class="re-nav">
   <div class="re-nav-inner">
@@ -627,9 +598,10 @@
       </video>
     </a>
     <ul class="re-navlinks">
-      <li><a href="#eventos"   class="re-navlink" data-en="Events">Eventos</a></li>
+      <li><a href="#eventos"   class="re-navlink" data-en="Work">Trabajo</a></li>
       <li><a href="#activaciones" class="re-navlink" data-en="Activations">Activaciones</a></li>
       <li><a href="#servicios" class="re-navlink" data-en="Services">Servicios</a></li>
+      <li><a href="#proceso" class="re-navlink" data-en="Process">Proceso</a></li>
       <li><a href="#contacto"  class="re-navlink" data-en="Contact">Contacto</a></li>
     </ul>
     <div class="re-nav-right">
@@ -646,9 +618,10 @@
 
 <!-- ░░ MOBILE DRAWER ░░ -->
 <div class="re-drawer" id="reDrawer" role="dialog" aria-modal="true" aria-label="Menú" data-en-aria="Menu">
-  <a href="#eventos"   class="re-drawer-link" data-drawer-link data-en="Events">Eventos</a>
+  <a href="#eventos"   class="re-drawer-link" data-drawer-link data-en="Work">Trabajo</a>
   <a href="#activaciones" class="re-drawer-link" data-drawer-link data-en="Activations">Activaciones</a>
   <a href="#servicios" class="re-drawer-link" data-drawer-link data-en="Services">Servicios</a>
+  <a href="#proceso" class="re-drawer-link" data-drawer-link data-en="Process">Proceso</a>
   <a href="#contacto"  class="re-drawer-link" data-drawer-link data-en="Contact">Contacto</a>
   <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
      target="_blank" rel="noopener" class="re-drawer-wa" data-drawer-link>WhatsApp</a>
@@ -667,7 +640,7 @@
         <span data-en="We create">Creamos</span>
         <span class="re-h1-underlined" data-en="Experiences.">Experiencias.<span class="re-underline"></span></span>
       </h1>
-      <p class="re-lead" data-en="Production, logistics and brand activations in the Dominican Republic. Creators of Maison Grand Prix.">Producción, logística y activaciones de marca en República Dominicana. Creadores de Maison Grand Prix.</p>
+      <p class="re-lead" data-en="Logistics, production and brand activations for companies and event organisers in the Dominican Republic. Creators of Maison Grand Prix.">Logística, producción y activaciones de marca para empresas y organizadores en República Dominicana. Creadores de Maison Grand Prix.</p>
       <div class="re-hero-ctas">
         <a href="#contacto" class="re-btn re-btn-black" data-en="Request a proposal →">Solicitar propuesta →</a>
         <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
@@ -680,38 +653,7 @@
       <div class="re-hero-caption"><span>Padel Fest · Santo Domingo · Logística</span></div>
     </div>
   </div>
-
-  <div class="re-stats">
-    <div class="re-stat">
-      <div class="re-stat-num">200</div>
-      <div class="re-stat-label" data-en="Players · Padel Fest Santo Domingo · our logistics">Participantes · Padel Fest Santo Domingo · Logística</div>
-    </div>
-    <div class="re-stat">
-      <div class="re-stat-num" data-en="Nov 1">1 Nov</div>
-      <div class="re-stat-label" data-en="Maison Grand Prix · our own event">Maison Grand Prix · Evento propio</div>
-    </div>
-    <div class="re-stat">
-      <div class="re-stat-num is-blue" data-en="Full">Integral</div>
-      <div class="re-stat-label" data-en="Production and logistics, start to finish">Producción y logística, de punta a punta</div>
-    </div>
-  </div>
 </section>
-
-<!-- ░░ MARQUEE ░░ -->
-<div class="re-marquee">
-  <div class="re-marquee-inner">
-    <span class="re-marquee-item">Maison Grand Prix</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" data-en="Production">Producción</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" data-en="Logistics">Logística</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" data-en="Brand activations">Activaciones de marca</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item">Santo Domingo</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" aria-hidden="true">Maison Grand Prix</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" aria-hidden="true" data-en="Production">Producción</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" aria-hidden="true" data-en="Logistics">Logística</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" aria-hidden="true" data-en="Brand activations">Activaciones de marca</span><span class="re-marquee-sep">✦</span>
-    <span class="re-marquee-item" aria-hidden="true">Santo Domingo</span><span class="re-marquee-sep">✦</span>
-  </div>
-</div>
 
 <!-- ░░ EVENTOS ░░ -->
 <section id="eventos" class="re-events-sec">
@@ -741,43 +683,27 @@
       </div>
     </article>
 
-    <!-- MGP: flips to "Realizado" by itself on 2 Nov (data-until). -->
-    <article class="re-event re-event-2" data-until="2026-11-02T00:00:00-04:00">
+    <article class="re-event re-event-2">
       <div class="re-event-media">
-        <img class="re-event-img" src="images/opt/mgp-card.webp" alt="Maison Grand Prix — Mexico City Edition, F1 watch party" loading="lazy" decoding="async" />
+        <img class="re-event-img" src="images/opt/mgp-sala.webp" alt="Invitados en Maison Grand Prix, Cielo Room del Weston Suites" loading="lazy" decoding="async" />
       </div>
       <div class="re-event-body">
         <div class="re-event-top">
-          <span class="re-badge re-badge-next only-upcoming" data-en="Upcoming · Our own event">Próximo · Evento propio</span>
-          <span class="re-badge re-badge-done only-past" hidden data-en="Delivered · Our own event">Realizado · Evento propio</span>
+          <span class="re-badge re-badge-done" data-en="Delivered · Our own event">Realizado · Evento propio</span>
           <span class="re-event-num">02</span>
         </div>
         <div>
-          <div class="re-event-date" data-en="November 1, 2026 · 2:00 PM · Cielo Room">Noviembre 1, 2026 · 2:00 PM · Cielo Room</div>
+          <div class="re-event-date" data-en="November 1, 2026 · Cielo Room, Weston Suites">Noviembre 1, 2026 · Cielo Room, Weston Suites</div>
           <h3 class="re-event-title">Maison Grand Prix · Mexico City Edition</h3>
-          <p class="re-event-desc" data-en="The Formula 1 Mexico City Grand Prix watch party at Cielo Room, Weston Suites, Santo Domingo. Created and produced by Ricardo Events.">La watch party del Gran Premio de México de Fórmula 1 en el Cielo Room del Weston Suites, Santo Domingo. Creada y producida por Ricardo Events.</p>
+          <p class="re-event-desc" data-en="The Formula 1 Mexico City Grand Prix watch party, built from scratch by Ricardo Events: we came up with the concept, designed the brand and every piece, produced the room and ran the logistics on the day.">La watch party del Gran Premio de México de Fórmula 1, creada desde cero por Ricardo Events: pensamos el concepto, diseñamos la marca y cada pieza, produjimos el salón y llevamos la logística del día.</p>
           <ul class="re-chips" aria-label="La experiencia" data-en-aria="The experience">
-            <li class="re-chip" data-en="The race on a giant LED screen">La carrera en pantalla LED gigante</li>
-            <li class="re-chip" data-en="Live DJ">DJ en vivo</li>
-            <li class="re-chip" data-en="Games with Geri Germán">Dinámicas con Geri Germán</li>
-            <li class="re-chip">After party</li>
+            <li class="re-chip" data-en="Concept">Concepto</li>
+            <li class="re-chip" data-en="Production">Producción</li>
+            <li class="re-chip" data-en="Design">Diseño</li>
+            <li class="re-chip" data-en="Logistics">Logística</li>
           </ul>
-          <div class="re-event-ctas only-upcoming">
-            <a class="re-btn re-btn-blue" href="https://tix.do/event/MaisonGrandPrixMexicoEdition-1" target="_blank" rel="noopener" data-en="Tickets RD$1,000 · TIX →">Boletos RD$1,000 · TIX →</a>
-            <a class="re-btn re-btn-line" href="https://wa.me/18092808874?text=Hola%2C%20quiero%20reservar%20una%20mesa%20para%20Maison%20Grand%20Prix%20%281%20de%20noviembre%29." target="_blank" rel="noopener" data-en="Book a table · WhatsApp">Reservar mesa · WhatsApp</a>
-          </div>
-          <a class="re-event-link only-past" hidden href="#activaciones" data-en="See the Cadillac activation →">Ver la activación con Cadillac →</a>
+          <a class="re-event-link" href="#activaciones" data-en="See the Cadillac activation →">Ver la activación con Cadillac →</a>
         </div>
-      </div>
-      <div class="re-sponsors">
-        <span class="re-sponsors-label">Powered by</span>
-        <ul>
-          <li><img class="re-sp-cadillac" src="images/opt/sponsors/cadillac.webp" alt="Cadillac" width="113" height="48" loading="lazy" decoding="async" /></li>
-          <li><img class="re-sp-weston" src="images/opt/sponsors/weston.webp" alt="Weston Hotel" width="100" height="48" loading="lazy" decoding="async" /></li>
-          <li><img class="re-sp-factor" src="images/opt/sponsors/factor.webp" alt="Factor de Éxito" width="192" height="54" loading="lazy" decoding="async" /></li>
-          <li><img class="re-sp-calabax" src="images/opt/sponsors/calabax.webp" alt="Calabax · Montajes y eventos" width="106" height="64" loading="lazy" decoding="async" /></li>
-          <li><img class="re-sp-kinnox" src="images/opt/sponsors/kinnox.webp" alt="Kinnox" width="152" height="36" loading="lazy" decoding="async" /></li>
-        </ul>
       </div>
     </article>
 
@@ -785,26 +711,24 @@
 </section>
 
 <!-- ░░ ACTIVACIONES ░░ -->
-<section id="activaciones" class="re-act-sec" data-until="2026-11-02T00:00:00-04:00">
+<section id="activaciones" class="re-act-sec">
   <div class="re-act">
     <div>
       <div class="re-eyebrow-blue" data-en="Brand activations">Activaciones de marca</div>
       <h2 class="re-h2 re-rise" data-en="Brands people play with">Marcas que se juegan</h2>
-      <p class="re-act-lead" data-en="We design activations that put a brand in people's hands: an idea tied to the brand, the piece built from scratch and the operation on the day, inside our events or anyone else's.">Diseñamos activaciones que ponen la marca en manos del público: una idea ligada a la marca, la pieza construida desde cero y la operación el día del evento, dentro de nuestros eventos o de otros.</p>
+      <p class="re-act-lead" data-en="We design activations that put a brand in people's hands: an idea tied to the brand, the experience designed to measure and the operation on the day, inside our events or anyone else's.">Diseñamos activaciones que ponen la marca en manos del público: una idea ligada a la marca, la experiencia diseñada a medida y la operación el día del evento, dentro de nuestros eventos o de otros.</p>
 
       <div class="re-case">
         <div class="re-case-top">
           <span class="re-case-label" data-en="Case · Cadillac × Maison Grand Prix">Caso · Cadillac × Maison Grand Prix</span>
-          <span class="re-badge re-badge-ink only-upcoming" data-en="Nov 1, 2026">1 Nov 2026</span>
-          <span class="re-badge re-badge-outline only-past" hidden data-en="Delivered · Nov 2026">Realizado · Nov 2026</span>
         </div>
-        <h3>Lights Out Challenge</h3>
-        <p data-en="For Cadillac at Maison Grand Prix we built the Lights Out Challenge: the Formula 1 start turned into a reflex game. The lights come on, they go out, and whoever reacts fastest climbs a live leaderboard, all in Cadillac's colours.">Para Cadillac en Maison Grand Prix creamos el Lights Out Challenge: la largada de la Fórmula 1 convertida en un reto de reflejos. Las luces se encienden, se apagan, y quien reaccione más rápido sube a un ranking en vivo, todo con los colores de Cadillac.</p>
+        <h3>10 Second Challenge</h3>
+        <p data-en="For Cadillac at Maison Grand Prix we set up the 10 Second Challenge: stop the clock at exactly 10 seconds. We tied it to the event's concept, “You’re officially on the grid”, designed its graphics in Cadillac's look and ran it on site.">Para Cadillac en Maison Grand Prix montamos el 10 Second Challenge: detener el reloj en exactamente 10 segundos. Lo integramos al concepto del evento, “You’re officially on the grid”, diseñamos su gráfica con la imagen de Cadillac y lo operamos en sitio.</p>
       </div>
 
       <div class="re-act-steps">
-        <div class="re-act-step"><b data-en="01 · Idea">01 · Idea</b><span data-en="A concept that only makes sense for that brand.">Un concepto que solo tiene sentido para esa marca.</span></div>
-        <div class="re-act-step"><b data-en="02 · Build">02 · Producción</b><span data-en="The game or the piece, designed and built to measure.">El juego o la pieza, diseñados y construidos a medida.</span></div>
+        <div class="re-act-step"><b data-en="01 · Idea">01 · Idea</b><span data-en="A concept that makes sense for the occasion.">Un concepto que tiene sentido para la ocasión.</span></div>
+        <div class="re-act-step"><b data-en="02 · Build">02 · Producción</b><span data-en="The game, the graphics and the setup, adapted to the brand.">El juego, la gráfica y el montaje, adaptados a la marca.</span></div>
         <div class="re-act-step"><b data-en="03 · On site">03 · En sitio</b><span data-en="We run it on the day, with the brand front and centre.">La operamos el día del evento, con la marca al frente.</span></div>
       </div>
 
@@ -814,9 +738,9 @@
     </div>
 
     <figure class="re-act-figure re-rise">
-      <img src="images/opt/lights-out.webp" width="1600" height="1000" loading="lazy" decoding="async"
-           alt="Pantalla del Lights Out Challenge: cinco columnas de luces blancas encendidas, ranking de los más rápidos y el logo de Cadillac" />
-      <figcaption data-en="Lights Out Challenge · the game screen">Lights Out Challenge · pantalla del juego</figcaption>
+      <img src="images/opt/mgp-10s.webp" width="1080" height="1616" loading="lazy" decoding="async"
+           alt="El reloj del 10 Second Challenge marcando 10.0000, con la gráfica You're officially on the grid de Cadillac" />
+      <figcaption data-en="10 Second Challenge · Cadillac × Maison Grand Prix">10 Second Challenge · Cadillac × Maison Grand Prix</figcaption>
     </figure>
   </div>
 </section>
@@ -829,34 +753,34 @@
         <div class="re-eyebrow-blue" data-en="Services">Servicios</div>
         <h2 class="re-h2 re-rise" data-en="What we handle">Lo que hacemos</h2>
       </div>
-      <p class="re-services-intro" data-en="One team accountable for the event: production, logistics, vendors and on-site execution.">Un solo equipo responsable del evento: producción, logística, proveedores y ejecución en sitio.</p>
+      <p class="re-services-intro" data-en="For brands that want to be present at events, and for organisers who need everything to run.">Para marcas que quieren estar presentes en eventos y para organizadores que necesitan que todo funcione.</p>
     </div>
 
     <div class="re-services">
       <div class="re-service re-rise">
         <span class="re-service-num">01</span>
-        <h3 data-en="Event production">Producción de eventos</h3>
-        <p data-en="Concept, planning, vendors and on-site operation. One accountable team from start to finish.">Concepto, planificación, proveedores y operación en sitio. Un equipo responsable de punta a punta.</p>
-      </div>
-      <div class="re-service re-rise">
-        <span class="re-service-num">02</span>
         <h3 data-en="Event logistics">Logística de eventos</h3>
         <p data-en="Setup, vendors, schedules and on-site staff. Every piece in place, on time.">Montaje, proveedores, horarios y personal en sitio. Cada pieza en su lugar, a tiempo.</p>
       </div>
       <div class="re-service re-rise">
+        <span class="re-service-num">02</span>
+        <h3 data-en="Brand activations">Activaciones de marca</h3>
+        <p data-en="Experiences that connect a brand with its audience, inside or outside an event.">Experiencias que conectan la marca con su audiencia, dentro o fuera de un evento.</p>
+      </div>
+      <div class="re-service re-rise">
         <span class="re-service-num">03</span>
+        <h3 data-en="Event production">Producción de eventos</h3>
+        <p data-en="Concept, planning, vendors and on-site operation. One team in charge of everything.">Concepto, planificación, proveedores y operación en sitio. Un solo equipo a cargo de todo.</p>
+      </div>
+      <div class="re-service re-rise">
+        <span class="re-service-num">04</span>
         <h3 data-en="Sports tournaments">Torneos deportivos</h3>
         <p data-en="Brackets, referees, awards and player logistics.">Bracket, arbitraje, premiación y logística de participantes.</p>
       </div>
       <div class="re-service re-rise">
-        <span class="re-service-num">04</span>
+        <span class="re-service-num">05</span>
         <h3 data-en="Festivals">Festivales</h3>
         <p data-en="Stages, permits, security and crowd experience.">Escenarios, permisos, seguridad y experiencia del público.</p>
-      </div>
-      <div class="re-service re-rise">
-        <span class="re-service-num">05</span>
-        <h3 data-en="Brand activations">Activaciones de marca</h3>
-        <p data-en="Experiences that connect a brand with its audience, inside or outside an event. Case: Cadillac × Maison Grand Prix.">Experiencias que conectan la marca con su audiencia, dentro o fuera de un evento. Caso: Cadillac × Maison Grand Prix.</p>
       </div>
       <a href="#contacto" class="re-service-cta re-rise">
         <span class="re-service-num">06</span>
@@ -865,6 +789,20 @@
           <p data-en="Get in touch. →">Escríbenos. →</p>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ PROCESO ░░ -->
+<section id="proceso" class="re-process-sec">
+  <div class="re-process-inner">
+    <div class="re-eyebrow-blue" data-en="Process">Proceso</div>
+    <h2 class="re-h2 re-rise" data-en="How we work">Cómo trabajamos</h2>
+    <div class="re-process">
+      <div class="re-process-step re-rise"><b>01</b><h3 data-en="Brief">Brief</h3><p data-en="You tell us about the event: date, venue, audience and budget.">Nos cuentas el evento: fecha, lugar, público y presupuesto.</p></div>
+      <div class="re-process-step re-rise"><b>02</b><h3 data-en="Proposal">Propuesta</h3><p data-en="We send the scope and the cost, in writing.">Te enviamos el alcance y el costo, por escrito.</p></div>
+      <div class="re-process-step re-rise"><b>03</b><h3 data-en="Production">Producción</h3><p data-en="We coordinate vendors, setup and schedules. One point of contact for everything.">Coordinamos proveedores, montaje y horarios. Un solo contacto para todo.</p></div>
+      <div class="re-process-step re-rise"><b>04</b><h3 data-en="On site">En sitio</h3><p data-en="Our team runs the event from doors open to close.">Nuestro equipo opera el evento de principio a fin.</p></div>
     </div>
   </div>
 </section>
