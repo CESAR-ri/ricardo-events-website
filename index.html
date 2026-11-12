@@ -6,7 +6,7 @@
   <title>Ricardo Events — Productora de eventos y activaciones de marca · Santo Domingo</title>
   <meta name="description" content="Productora de eventos en Santo Domingo: logística, producción y activaciones de marca para empresas y organizadores. Creadores de Maison Grand Prix." />
   <link rel="canonical" href="https://ricardo.com.do/" />
-  <meta name="theme-color" content="#004AAD" />
+  <meta name="theme-color" content="#000000" />
 
   <!-- Favicons -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -31,7 +31,7 @@
   <meta name="twitter:image" content="https://ricardo.com.do/og-image.jpg" />
 
   <!-- The hero photo is a CSS background, so the preload scanner can't see it -->
-  <link rel="preload" as="image" href="images/opt/padel-4.webp" type="image/webp" />
+  <link rel="preload" as="image" href="images/opt/crowd.webp" type="image/webp" />
 
   <!-- Structured data. MGP stays listed as a past event. -->
   <script type="application/ld+json">
@@ -59,7 +59,7 @@
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "inLanguage": "es",
-        "image": "https://ricardo.com.do/images/opt/mgp-entrada.webp",
+        "image": "https://ricardo.com.do/images/opt/guests.webp",
         "location": {
           "@type": "Place",
           "name": "Cielo Room — Weston Suites",
@@ -73,951 +73,460 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
 
   <style>
-    /* ══════════════════════════════════════════
-       TOKENS — from the Ricardo Events design system
-    ══════════════════════════════════════════ */
-    :root {
-      --blue:       #004AAD;
-      --blue-hover: #2060E0;
-      --blue-soft:  #8bb0ff;
-      --black:      #0A0A0A;
-      --white:      #FFFFFF;
-      --surface:    #111111;
-      --max-w:      1560px;
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
+:root{
+  --black:#000; --ink:#0b0b0c; --panel:#121214; --line:#26262a;
+  --white:#fff; --mute:#b9b9c0; --blue:#004AAD;
+  --max:1240px; --gut:clamp(16px,4vw,48px);
+  --disp:'Bebas Neue',Impact,sans-serif; --body:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--white);font-family:var(--body);font-size:16px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:.92;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;color:#000;padding:8px 12px;z-index:60}
 
-    /* ══════════════════════════════════════════
-       BASE
-    ══════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--white);
-      color: var(--black);
-      font-family: var(--font-body);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    ::selection { background: var(--blue); color: #fff; }
-    /* date-driven states hide nodes with [hidden]; component display rules must not win */
-    [hidden] { display: none !important; }
-    :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
-    /* blue focus ring is invisible on blue and weak on black: use white there */
-    .re-announce :focus-visible, .re-cta-band :focus-visible, .re-event :focus-visible,
-    .re-contact :focus-visible, .re-footer :focus-visible { outline-color: #fff; }
-    .re-skip {
-      position: absolute; left: 12px; top: -60px; z-index: 2000;
-      padding: 12px 18px; background: var(--black); color: #fff;
-      font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase;
-    }
-    .re-skip:focus { top: 12px; }
+/* nav */
+.nav{position:absolute;inset:0 0 auto 0;z-index:30}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px var(--gut);max-width:var(--max);margin:0 auto}
+.nav img{height:34px;width:auto}
+.nav ul{display:flex;gap:30px;list-style:none}
+.nav ul a{font-family:var(--disp);font-size:17px;letter-spacing:.06em;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+.nav ul a:hover{border-color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:18px;letter-spacing:.06em;padding:12px 20px 10px;background:#fff;color:#000;border:0;cursor:pointer;transition:transform .18s var(--ease),background .18s,color .18s}
+.btn:hover{background:var(--blue);color:#fff}
+.btn:active{transform:scale(.97)}
+.btn.blue{background:var(--blue);color:#fff}.btn.blue:hover{background:#fff;color:#000}
+.btn.line{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px #fff}.btn.line:hover{background:#fff;color:#000}
+.lang{display:flex;align-items:center;gap:4px;font-family:var(--disp);font-size:17px;letter-spacing:.06em;margin-left:auto}
+.lang button{background:none;border:0;color:#fff;font:inherit;letter-spacing:inherit;cursor:pointer;padding:8px 6px;opacity:.55}
+.lang button[aria-pressed="true"]{opacity:1;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.lang span{opacity:.5}
+.nav ul{margin-left:auto}.nav ul+.lang{margin-left:0}
+.burger{display:none;background:none;border:0;color:#fff;font-size:30px;line-height:1;cursor:pointer;padding:4px 8px}
 
-    /* ══════════════════════════════════════════
-       ANNOUNCEMENT BAR — hides itself after the event (data-until)
-    ══════════════════════════════════════════ */
-    .re-announce {
-      display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-      gap: 6px 14px; padding: 10px clamp(20px,3.5vw,48px);
-      background: var(--blue); color: #fff; text-align: center;
-      font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
-    }
-    .re-announce-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; flex-shrink: 0; animation: rePulse 1.8s ease-in-out infinite; }
-    .re-announce a { border-bottom: 1px solid rgba(255,255,255,0.6); padding-bottom: 1px; white-space: nowrap; }
-    .re-announce a:hover { border-bottom-color: #fff; }
-    @keyframes rePulse { 50% { opacity: 0.35; } }
+/* hero */
+.hero{position:relative;min-height:min(100svh,860px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-3;background:url(images/opt/crowd.webp) center 62%/cover;filter:grayscale(1) contrast(1.15) brightness(1.15)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--blue);mix-blend-mode:multiply}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(90% 70% at 62% 70%,rgba(0,74,173,.55),transparent 70%),
+  linear-gradient(90deg,#000 0%,rgba(0,0,0,.72) 26%,transparent 62%),
+  linear-gradient(180deg,rgba(0,0,0,.7) 0%,transparent 30%,transparent 70%,#000 100%)}
+.hero-in{width:100%;max-width:var(--max);margin:0 auto;padding:150px var(--gut) clamp(40px,7vw,90px);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:end}
+.hero h1{font-size:clamp(4rem,11.5vw,10.5rem);line-height:.84}
+.hero p{max-width:34ch;color:#e6e9f2;font-size:15px;padding-bottom:14px}
+.hero p b{display:block;font-family:var(--disp);font-weight:400;font-size:18px;letter-spacing:.08em;color:#fff;margin-bottom:8px}
 
-    @keyframes reRise    { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
-    @keyframes reWipe    { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-    @keyframes reMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @keyframes reSlow    { from { transform: scale(1.06); } to { transform: scale(1.16); } }
+/* strip */
+.strip{display:grid;grid-template-columns:.8fr 1.1fr 1.7fr;max-width:1440px;margin:0 auto}
+.strip>*{min-height:190px}
+.s-date{background:#fff;color:#000;padding:26px 28px;display:flex;flex-direction:column;justify-content:center}
+.s-date .n{font-family:var(--disp);font-size:44px;line-height:1;color:var(--blue)}
+.s-date strong{font-size:14px;margin:4px 0 6px}
+.s-date span{font-size:13px;color:#45454d;max-width:26ch}
+.s-photo{position:relative;overflow:hidden}
+.s-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .8s var(--ease)}
+.s-photo:hover img{transform:scale(1.05)}
+.s-blue{background:var(--blue);padding:28px clamp(22px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:10px}
+.s-blue h2{font-size:clamp(1.7rem,2.6vw,2.4rem)}
+.s-blue p{font-size:14px;max-width:46ch;color:#e4ecfa}
+.s-blue a{font-family:var(--disp);letter-spacing:.06em;font-size:17px;align-self:flex-start;border-bottom:2px solid #fff}
 
-    /* ══════════════════════════════════════════
-       NAV
-    ══════════════════════════════════════════ */
-    .re-nav {
-      position: sticky; top: 0; z-index: 300;
-      height: 76px;
-      display: flex; align-items: center;
-      padding: 0 clamp(20px, 3.5vw, 48px);
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--black);
-    }
-    .re-nav-inner {
-      width: 100%; max-width: var(--max-w); margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-    }
-    .re-logo { flex-shrink: 0; }
-    .re-logo img { height: 32px; width: auto; }
-    .re-logo video { display: block; height: 32px; width: auto; aspect-ratio: 1000 / 238; }
-    .re-navlinks { display: flex; gap: clamp(14px, 2vw, 32px); }
-    .re-navlink {
-      font-size: 11px; font-weight: 600; letter-spacing: 1.6px;
-      text-transform: uppercase; color: #555; transition: color 0.2s;
-    }
-    .re-navlink:hover { color: var(--black); }
-    .re-nav-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
-    .re-lang { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; }
-    .re-lang button {
-      background: none; border: none; padding: 0; cursor: pointer;
-      font: inherit; color: #767676; transition: color 0.2s;
-    }
-    .re-lang button[aria-pressed="true"] { color: var(--black); }
-    .re-lang-sep { color: #bbb; }
-    .re-nav-cta {
-      padding: 12px 22px; background: var(--blue); color: #fff;
-      font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
-      text-transform: uppercase; transition: background 0.2s;
-    }
-    .re-nav-cta:hover { background: var(--black); color: #fff; }
-    .re-burger {
-      display: none; width: 38px; height: 38px;
-      align-items: center; justify-content: center;
-      background: transparent; border: 1.5px solid var(--black);
-      color: var(--black); cursor: pointer; font-size: 15px; line-height: 1;
-    }
+/* statement */
+.state{padding:clamp(80px,12vw,170px) 0 clamp(60px,9vw,120px)}
+.state .wrap{display:grid;grid-template-columns:200px 1fr;gap:32px}
+.tag{font-family:var(--disp);font-size:18px;letter-spacing:.08em;display:flex;gap:10px;align-items:center;height:fit-content}
+.tag::before{content:"";width:12px;height:12px;background:var(--blue)}
+.side small{display:block;margin-top:10px;color:var(--mute);font-size:13px;max-width:22ch}
+.state h2{font-size:clamp(2.3rem,5.6vw,5.1rem);line-height:1.02}
+.hl{background:var(--blue);padding:.02em .16em 0;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.state .after{margin:28px 0 0 auto;max-width:44ch;color:var(--mute);font-size:15px}
 
-    /* ══════════════════════════════════════════
-       MOBILE DRAWER
-    ══════════════════════════════════════════ */
-    .re-drawer {
-      position: fixed; inset: 0; z-index: 290;
-      background: var(--white);
-      display: flex; flex-direction: column; justify-content: center;
-      gap: 4px; padding: 0 24px;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    body.re-menu-open .re-drawer { opacity: 1; visibility: visible; }
-    /* .re-nav is sticky with z-index 300, so it already sits above the drawer
-       and the close button stays reachable. Do not lower it. */
-    .re-drawer-link {
-      font-family: var(--font-display);
-      font-size: clamp(44px, 13vw, 68px);
-      line-height: 1.05; text-transform: uppercase; color: var(--black);
-    }
-    .re-drawer-link:active { color: var(--blue); }
-    .re-drawer-wa {
-      margin-top: 28px; align-self: flex-start;
-      padding: 15px 28px; background: var(--blue); color: #fff;
-      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    }
+/* work */
+.work{padding-bottom:clamp(70px,10vw,130px)}
+.work .wrap{display:grid;grid-template-columns:200px 1fr;gap:32px}
+.grid{display:grid;grid-template-columns:1fr 1.45fr;gap:18px}
+.card{position:relative;overflow:hidden;background:var(--panel);min-height:340px;display:flex;align-items:flex-end}
+.card.wide{grid-column:1/-1;min-height:clamp(340px,42vw,560px)}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover img{transform:scale(1.04)}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.88) 100%)}
+.card div{position:relative;z-index:1;padding:26px 28px}
+.card h3{font-size:clamp(1.7rem,2.6vw,2.5rem)}
+.card p{font-size:13.5px;color:#dcdce2;max-width:44ch;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;list-style:none}
+.chips li{font-family:var(--disp);letter-spacing:.07em;font-size:15px;padding:5px 12px 3px;background:var(--blue)}
 
-    /* ══════════════════════════════════════════
-       BUTTONS
-    ══════════════════════════════════════════ */
-    .re-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-    .re-btn-black   { padding: 16px 30px; background: var(--black); color: #fff; }
-    .re-btn-black:hover { background: var(--blue); color: #fff; }
-    .re-btn-outline { padding: 16px 30px; border: 1.5px solid var(--black); color: var(--black); }
-    .re-btn-outline:hover { background: var(--black); color: #fff; }
+/* collage */
+.coll{position:relative;padding:clamp(70px,9vw,120px) 0;overflow:hidden;isolation:isolate}
+.coll::before{content:"";position:absolute;z-index:-1;left:50%;top:52%;width:min(1100px,120vw);aspect-ratio:1.5;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(0,74,173,.85),rgba(0,74,173,.25) 55%,transparent 75%);filter:blur(30px)}
+.coll h2{text-align:center;font-size:clamp(2.4rem,5.4vw,4.6rem)}
+.coll .lead{text-align:center;color:#d5d9e6;font-size:14px;max-width:44ch;margin:0 auto 12px}
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(22px,3.1vw,44px);gap:14px;max-width:1180px;margin:44px auto 48px;padding:0 var(--gut)}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.mosaic figure{overflow:hidden}
+.mosaic figure:hover img{transform:scale(1.05)}
+.m1{grid-column:1/4;grid-row:3/8}.m2{grid-column:4/6;grid-row:1/5}.m3{grid-column:6/9;grid-row:1/9}.m4{grid-column:9/11;grid-row:2/6}.m5{grid-column:11/13;grid-row:4/9}
+.m6{grid-column:2/4;grid-row:8/12}.m7{grid-column:4/6;grid-row:5/11}.m8{grid-column:9/11;grid-row:6/12}.m9{grid-column:6/9;grid-row:9/13}
 
-    /* ══════════════════════════════════════════
-       HERO
-    ══════════════════════════════════════════ */
-    .re-hero { border-bottom: 1px solid var(--black); }
-    .re-hero-grid {
-      max-width: var(--max-w); margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
-      align-items: stretch;
-    }
-    .re-hero-copy {
-      padding: clamp(44px,7vw,104px) clamp(20px,3.5vw,48px) clamp(32px,4vw,56px);
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .re-eyebrow-row { display: flex; align-items: center; gap: 12px; margin-bottom: clamp(22px,3vw,40px); }
-    .re-rule {
-      width: 34px; height: 2px; background: var(--blue); display: block;
-      transform-origin: left; animation: reWipe 0.7s cubic-bezier(0.16,1,0.3,1) both;
-    }
-    .re-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); }
-    .re-h1 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(58px, 8.4vw, 158px);
-      line-height: 0.82; letter-spacing: -0.015em;
-      text-transform: uppercase; margin: 0;
-    }
-    .re-h1 span { display: block; }
-    .re-h1-underlined { position: relative; width: fit-content; }
-    .re-h1-underlined .re-underline {
-      position: absolute; left: 0; right: 0; bottom: -0.04em;
-      height: 0.075em; background: var(--blue); display: block;
-      transform-origin: left; animation: reWipe 1.1s cubic-bezier(0.16,1,0.3,1) 0.35s both;
-    }
-    .re-lead {
-      font-size: clamp(15px, 1.15vw, 18px); line-height: 1.65; color: #444;
-      max-width: 520px; margin: clamp(24px,3vw,40px) 0 0; text-wrap: pretty;
-    }
-    .re-hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(24px,3vw,38px); }
-    .re-hero-media {
-      position: relative; overflow: hidden;
-      min-height: clamp(320px, 52vw, 720px);
-      border-left: 1px solid var(--black); background: #000;
-    }
-    .re-hero-img {
-      position: absolute; inset: 0;
-      background-image: url('images/opt/padel-4.webp');
-      background-size: cover; background-position: center 38%;
-      animation: reSlow 18s ease-in-out infinite alternate;
-    }
-    .re-hero-scan {
-      position: absolute; inset: 0;
-      background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,0.1) 0 1px, transparent 1px 80px);
-    }
-    .re-hero-caption { position: absolute; left: 0; bottom: 0; padding: 22px 24px; background: var(--blue); }
-    .re-hero-caption span { font-size: 10px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: #fff; }
+/* services */
+.serv-head{padding:clamp(60px,8vw,110px) 0 36px}
+.serv-head .wrap{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.serv-head h2{font-size:clamp(2.6rem,6vw,5rem)}
+.serv-head p{color:var(--mute);max-width:40ch;font-size:15px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr)}
+.col{padding:44px clamp(20px,3vw,44px) 54px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.col h3{font-size:clamp(2.4rem,4.4vw,4rem)}
+.col.c1{background:#fff;color:#000}.col.c2{background:var(--blue)}.col.c3{background:#1a1a1d}
+.pola{background:#fff;padding:10px 10px 44px;width:min(230px,70%);margin:30px 0 30px;box-shadow:0 18px 40px rgba(0,0,0,.35);transition:transform .45s var(--ease)}
+.c1 .pola{box-shadow:0 18px 40px rgba(0,0,0,.22);transform:rotate(-4deg)}.c2 .pola{transform:rotate(3deg)}.c3 .pola{transform:rotate(-2deg)}
+.col:hover .pola{transform:rotate(0) translateY(-6px)}
+.pola img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.col strong{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+.col p{font-size:14px;max-width:34ch;margin:10px 0 24px}
+.col .mk{font-family:'Permanent Marker',cursive;font-size:15px;padding:9px 18px;margin-top:auto;transition:transform .18s var(--ease)}
+.col .mk:hover{transform:rotate(-2deg) scale(1.04)}
+.c1 .mk{background:var(--blue);color:#fff}.c2 .mk{background:#fff;color:var(--blue)}.c3 .mk{background:#fff;color:#000}
+.more{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.more>*{padding:30px clamp(20px,3vw,44px);border-right:1px solid var(--line)}
+.more>*:last-child{border:0}
+.more h3{font-size:1.7rem;margin-bottom:6px}
+.more p{color:var(--mute);font-size:14px}
+.more a:hover h3{text-decoration:underline;text-underline-offset:5px}
 
-    /* ══════════════════════════════════════════
-       STATS
-    ══════════════════════════════════════════ */
-    .re-stats {
-      border-top: 1px solid var(--black);
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      max-width: var(--max-w); margin: 0 auto;
-    }
-    .re-stat { padding: 26px clamp(20px,3.5vw,48px); border-right: 1px solid #ddd; }
-    .re-stat:last-child { border-right: 0; }
-    .re-stat-num { font-family: var(--font-display); font-size: clamp(34px,3.4vw,52px); line-height: 0.9; }
-    .re-stat-num.is-blue { color: var(--blue); }
-    .re-stat-label { font-size: 10.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #5f5f5f; margin-top: 4px; }
+/* activation */
+.act{padding:clamp(80px,11vw,150px) 0}
+.act .wrap{display:grid;grid-template-columns:1fr .8fr;gap:clamp(30px,6vw,90px);align-items:center}
+.act h2{font-size:clamp(2.8rem,7vw,6rem);margin:14px 0 18px}
+.act p{color:#d6d6dc;max-width:54ch}
+.note{font-family:'Permanent Marker',cursive;font-size:18px;display:inline-block;transform:rotate(-3deg);margin-bottom:6px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:34px 0;border-top:1px solid var(--line)}
+.steps div{padding:18px 18px 0 0}
+.steps b{font-family:var(--disp);font-weight:400;font-size:20px;letter-spacing:.05em;display:block;margin-bottom:4px}
+.steps span{font-size:13.5px;color:var(--mute)}
+.act figure{position:relative}
+.act figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 25%}
+.act figcaption{position:absolute;left:-18px;bottom:26px;background:var(--blue);font-family:var(--disp);letter-spacing:.06em;font-size:17px;padding:9px 14px 7px}
 
-    /* ══════════════════════════════════════════
-       MARQUEE
-    ══════════════════════════════════════════ */
-    .re-marquee { background: var(--black); overflow: hidden; padding: 14px 0; }
-    .re-marquee-inner { display: flex; align-items: center; width: max-content; animation: reMarquee 32s linear infinite; }
-    .re-marquee-item {
-      font-family: var(--font-display); font-size: 18px; letter-spacing: 3.4px;
-      color: #fff; white-space: nowrap; padding: 0 20px;
-    }
-    .re-marquee-sep { color: var(--blue); }
+/* process */
+.proc{background:#fff;color:#000;padding:clamp(70px,9vw,120px) 0}
+.proc h2{font-size:clamp(2.6rem,6vw,5rem);margin-bottom:44px}
+.proc ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.proc li{counter-increment:s;border-top:3px solid #000;padding:18px 22px 0 0}
+.proc li::before{content:"0" counter(s);font-family:var(--disp);font-size:56px;line-height:1;color:var(--blue)}
+.proc h3{font-size:1.9rem;margin:8px 0 6px}
+.proc p{font-size:14.5px;color:#33333a;max-width:28ch}
 
-    /* ══════════════════════════════════════════
-       SECTION HEADS
-    ══════════════════════════════════════════ */
-    .re-sec-head {
-      max-width: var(--max-w); margin: 0 auto;
-      padding: 0 clamp(20px,3.5vw,48px) clamp(28px,4vh,48px);
-      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px;
-    }
-    .re-eyebrow-blue { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
-    .re-h2 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(44px, 6.4vw, 116px); line-height: 0.85;
-      text-transform: uppercase; margin: 0;
-    }
-    .re-count { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6b6b6b; }
+/* band */
+.band{position:relative;min-height:clamp(380px,48vw,620px);display:grid;place-items:center;text-align:center;isolation:isolate;overflow:hidden}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(1) contrast(1.1);z-index:-2}
+.band::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62);z-index:-1}
+.band h2{font-size:clamp(2.8rem,8vw,7rem);margin-bottom:22px}
 
-    /* ══════════════════════════════════════════
-       EVENTS
-    ══════════════════════════════════════════ */
-    .re-events-sec { background: var(--white); padding: clamp(64px,9vh,110px) 0 0; }
-    .re-events { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px,3.5vw,48px) clamp(64px,9vh,110px); }
-    .re-event {
-      position: relative; background: var(--black); color: #fff;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      min-height: clamp(320px, 42vw, 480px); overflow: hidden;
-    }
-    .re-event-1 { margin-bottom: 24px; }
-    .re-event-2 { margin-bottom: 24px; }
-    .re-event-3 { }
-    .re-event-media { position: relative; overflow: hidden; min-height: 240px; }
-    .re-event-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-    .re-event-link { display: inline-block; margin-top: 18px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); padding-bottom: 3px; }
-    .re-event-link:hover, .re-event-link:focus-visible { border-bottom-color: #fff; }
-    .re-event-body {
-      padding: clamp(26px,3vw,52px);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
-    }
-    .re-event-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-    .re-badge { padding: 5px 11px; font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-    .re-badge-done { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); }
-    .re-badge-next { background: var(--blue); color: #fff; }
-    .re-event-num { font-family: var(--font-display); font-size: 26px; color: rgba(255,255,255,0.3); }
-    .re-event-date { font-size: 10.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: var(--blue-soft); margin-bottom: 12px; }
-    .re-event-title {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(32px,3.6vw,60px); line-height: 0.9;
-      text-transform: uppercase; margin: 0 0 14px;
-    }
-    .re-event-desc { font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.68); margin: 0; max-width: 440px; }
+/* contact */
+.contact{padding:clamp(70px,9vw,120px) 0}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px)}
+.contact h2{font-size:clamp(2.4rem,5vw,4.4rem);margin:14px 0 16px}
+.contact p{color:var(--mute);max-width:44ch}
+.contact .acts{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+form{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+label{display:grid;gap:6px;font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#dcdce2}
+label.full{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:16px;color:#fff;background:var(--panel);border:1px solid #3a3a40;padding:13px 14px;border-radius:0;width:100%}
+input::placeholder,textarea::placeholder{color:#9a9aa3}
+input:focus,select:focus,textarea:focus{outline:2px solid #fff;outline-offset:0;border-color:#fff}
+form .btn{grid-column:1/-1;justify-content:center;padding:16px}
+.demo{grid-column:1/-1;font-size:14px;color:#fff}
+[hidden]{display:none!important}
+.ok{border:1px solid #3a3a40;padding:40px 28px;align-self:start}.ok h3{font-size:2.4rem;margin-bottom:8px}.ok p{color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer img{height:28px;width:auto}
+.fl{display:flex;gap:22px}.fl a{color:#fff;text-decoration:underline;text-underline-offset:4px}
 
-    /* MGP — our own event: experience chips, ticket/table CTAs, sponsor band */
-    .re-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; }
-    .re-chip {
-      padding: 7px 12px; border: 1px solid rgba(255,255,255,0.22);
-      font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #fff;
-    }
-    .re-event-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .re-btn-blue { padding: 15px 24px; background: var(--blue); color: #fff; }
-    .re-btn-blue:hover { background: #fff; color: var(--black); }
-    .re-btn-line { padding: 14px 22px; border: 1.5px solid rgba(255,255,255,0.4); color: #fff; }
-    .re-btn-line:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+.rise{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}*{transition:none!important}}
 
-    /* ══════════════════════════════════════════
-       BRAND ACTIVATIONS
-    ══════════════════════════════════════════ */
-    .re-act-sec { border-top: 1px solid var(--black); padding: clamp(64px,9vh,110px) clamp(20px,3.5vw,48px); }
-    .re-act {
-      max-width: var(--max-w); margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
-      gap: clamp(32px,5vw,80px); align-items: center;
-    }
-    .re-act-lead { font-size: clamp(15px,1.15vw,18px); line-height: 1.7; color: #444; margin: 22px 0 0; max-width: 540px; text-wrap: pretty; }
-    .re-case { margin-top: 30px; padding-top: 22px; border-top: 1px solid #ddd; }
-    .re-case-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 10px; }
-    .re-case-label { font-size: 11px; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase; color: var(--blue); }
-    .re-badge-ink { background: var(--black); color: #fff; }
-    .re-badge-outline { border: 1px solid var(--black); color: var(--black); }
-    .re-case h3 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(30px,3vw,48px); line-height: 0.92; text-transform: uppercase; margin: 0 0 12px;
-    }
-    .re-case p { font-size: 14.5px; line-height: 1.7; color: #444; margin: 0; max-width: 540px; }
-    .re-act-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 1px; background: #ddd; border: 1px solid #ddd; margin-top: 26px; }
-    .re-act-step { background: #fff; padding: 16px 18px; }
-    .re-act-step b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 15px; letter-spacing: 1.5px; color: var(--blue); margin-bottom: 4px; }
-    .re-act-step span { font-size: 13px; line-height: 1.5; color: #333; }
-    .re-act-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .re-act-figure { margin: 0; }
-    /* the screenshot is rendered at exactly 16:10, so this slot never crops or letterboxes */
-    .re-act-figure img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--black); }
-    .re-act-figure figcaption { margin-top: 10px; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: #5f5f5f; }
-
-    /* ══════════════════════════════════════════
-       SERVICES
-    ══════════════════════════════════════════ */
-    .re-services-sec {
-      background: #f2f2f2; border-top: 1px solid var(--black);
-      padding: clamp(64px,9vh,110px) clamp(20px,3.5vw,48px);
-    }
-    .re-services-head {
-      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
-      gap: 24px; margin-bottom: clamp(28px,4vh,52px);
-    }
-    /* Process: how a client job runs, same grid language as the activation steps */
-    .re-process-sec { padding: clamp(64px,9vh,110px) clamp(20px,3.5vw,48px); border-top: 1px solid var(--black); }
-    .re-process-inner { max-width: var(--max-w); margin: 0 auto; }
-    .re-process { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 1px; background: var(--black); border: 1px solid var(--black); margin-top: clamp(28px,4vw,48px); }
-    .re-process-step { background: #fff; padding: clamp(22px,2.4vw,34px); }
-    .re-process-step b { display: block; font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,2.4vw,36px); line-height: 1; color: var(--blue); margin-bottom: 10px; }
-    .re-process-step h3 { font-family: var(--font-display); font-weight: 400; font-size: 22px; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 8px; }
-    .re-process-step p { font-size: 14px; line-height: 1.6; color: #444; margin: 0; }
-    .re-services-intro { font-size: 15px; line-height: 1.7; color: #555; max-width: 380px; margin: 0; text-wrap: pretty; }
-    .re-services {
-      /* at most 3 columns: 6 cells always fill 3x2, 2x3 or 1x6, never leaving empty grey slots */
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, max(300px, calc((100% - 2px) / 3))), 1fr));
-      gap: 1px; background: #ccc; border: 1px solid #ccc;
-    }
-    .re-service {
-      background: #fff; padding: clamp(26px,2.6vw,40px);
-      display: flex; flex-direction: column; gap: 14px;
-      transition: background 0.25s, color 0.25s;
-    }
-    .re-service:hover { background: var(--blue); color: #fff; }
-    .re-service-num { font-family: var(--font-display); font-size: 15px; letter-spacing: 1.5px; color: var(--blue); transition: color 0.25s; }
-    /* the numeral is blue on white; on the blue hover state it would vanish */
-    .re-service:hover .re-service-num { color: #fff; }
-    .re-service h3 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(26px,2.4vw,38px); line-height: 0.95;
-      text-transform: uppercase; margin: 0;
-    }
-    .re-service p { font-size: 13.5px; line-height: 1.65; margin: 0; color: inherit; opacity: 0.72; }
-    .re-service-cta {
-      background: var(--black); color: #fff; padding: clamp(26px,2.6vw,40px);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 14px;
-      transition: background 0.25s, color 0.25s;
-    }
-    .re-service-cta:hover { background: var(--blue); color: #fff; }
-    .re-service-cta .re-service-num { color: var(--blue-soft); }
-    .re-service-cta h3 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(26px,2.4vw,38px); line-height: 0.95;
-      text-transform: uppercase; margin: 0 0 12px;
-    }
-    .re-service-cta p { font-size: 13.5px; line-height: 1.65; margin: 0; color: rgba(255,255,255,0.72); }
-
-    /* ══════════════════════════════════════════
-       CTA BAND
-    ══════════════════════════════════════════ */
-    .re-cta-band {
-      position: relative; background: var(--blue);
-      padding: clamp(80px,12vh,140px) clamp(20px,3.5vw,48px); overflow: hidden;
-    }
-    .re-cta-pattern {
-      position: absolute; inset: 0;
-      background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,0.07) 0 1px, transparent 1px 40px);
-    }
-    .re-cta-inner {
-      position: relative; z-index: 1; max-width: var(--max-w); margin: 0 auto;
-      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 36px;
-    }
-    .re-cta-h2 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(48px,8vw,132px); line-height: 0.85;
-      text-transform: uppercase; color: #fff; margin: 0; max-width: 900px; text-wrap: balance;
-    }
-    .re-btn-white { padding: 18px 36px; background: #fff; color: var(--black); flex-shrink: 0; }
-    .re-btn-white:hover { background: var(--black); color: #fff; }
-
-    /* ══════════════════════════════════════════
-       CONTACT
-    ══════════════════════════════════════════ */
-    .re-contact {
-      background: var(--black); color: #fff;
-      padding: clamp(64px,9vh,110px) clamp(20px,3.5vw,48px);
-    }
-    .re-contact-grid {
-      max-width: var(--max-w); margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: clamp(40px,5vw,88px); align-items: start;
-    }
-    .re-contact-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--blue-soft); margin-bottom: 12px; }
-    .re-contact-h2 {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: clamp(42px,5.6vw,88px); line-height: 0.88;
-      text-transform: uppercase; margin: 0 0 22px; text-wrap: balance;
-    }
-    .re-contact-p { font-size: 15px; line-height: 1.75; color: rgba(255,255,255,0.6); max-width: 400px; margin: 0 0 30px; }
-    .re-contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .re-btn-ghost {
-      padding: 14px 26px; border: 1.5px solid rgba(255,255,255,0.2); color: #fff;
-    }
-    .re-btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
-    .re-contact-meta {
-      margin-top: 34px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.12);
-      font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(255,255,255,0.62);
-    }
-    .re-form { display: flex; flex-direction: column; gap: 16px; }
-    .re-form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
-    .re-field { display: flex; flex-direction: column; gap: 7px; }
-    .re-field label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); }
-    .re-field input,
-    .re-field select,
-    .re-field textarea {
-      border: 1.5px solid rgba(255,255,255,0.14); background: var(--surface); color: #fff;
-      padding: 14px 15px; font-size: 14px; font-family: var(--font-body);
-      outline: none; border-radius: 0; transition: border-color 0.2s;
-    }
-    .re-field input:focus,
-    .re-field select:focus,
-    .re-field textarea:focus { border-color: var(--blue); }
-    .re-field select { appearance: none; -webkit-appearance: none; }
-    .re-field textarea { min-height: 130px; resize: vertical; }
-    .re-submit {
-      align-self: flex-start; padding: 17px 34px;
-      background: var(--blue); color: #fff; border: none; cursor: pointer;
-      font-family: var(--font-body); font-size: 11px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase; transition: background 0.2s;
-    }
-    .re-submit:hover { background: var(--blue-hover); }
-    .re-submit:disabled { opacity: 0.6; cursor: default; }
-    .re-form-ok {
-      display: none; margin-top: 4px; padding: 20px 22px;
-      border-left: 3px solid var(--blue); background: var(--surface);
-    }
-    .re-form-ok strong { display: block; font-weight: 600; margin-bottom: 4px; }
-    .re-form-ok span { font-size: 14px; color: rgba(255,255,255,0.6); }
-
-    /* ══════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════ */
-    .re-footer { background: #000; border-top: 1px solid rgba(255,255,255,0.07); padding: 40px clamp(20px,3.5vw,48px); }
-    .re-footer-inner {
-      max-width: var(--max-w); margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
-    }
-    .re-footer img { height: 38px; width: auto; }
-    .re-footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
-    .re-footer-links { display: flex; gap: 20px; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; }
-    .re-footer-links a { color: rgba(255,255,255,0.75); }
-    .re-footer-links a:hover { color: #fff; }
-
-    /* ══════════════════════════════════════════
-       SCROLL REVEAL
-    ══════════════════════════════════════════ */
-    .re-rise.is-visible { animation: reRise 0.85s cubic-bezier(0.16,1,0.3,1) both; }
-
-    /* ══════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════ */
-    /* four links + language + CTA need ~900px; below that the burger takes over */
-    @media (max-width: 959px) {
-      .re-navlinks { display: none; }
-      .re-burger   { display: inline-flex; }
-      .re-nav-cta  { display: none; }
-    }
-    @media (max-width: 699px) {
-      .re-hero-media { border-left: 0; border-top: 1px solid var(--black); }
-      .re-event-1, .re-event-2, .re-event-3 { position: static; top: auto; }
-    }
-    @media (max-width: 599px) {
-      .re-event-2 { grid-template-columns: 1fr; }
-    }
-    /* the MGP card is taller than a short viewport; pinned, its sponsor band would never show */
-    @media (max-height: 820px) {
-      .re-event-2 { position: static; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+@media (max-width:960px){
+  .nav ul,.nav .btn{display:none}.burger{display:block}.lang{margin-left:auto}
+  .nav.open ul{display:flex;flex-direction:column;position:fixed;inset:0;background:#000;padding:110px var(--gut) 40px;gap:8px;z-index:-1}
+  .nav.open ul a{font-size:44px}
+  .hero-in{grid-template-columns:1fr}
+  .strip{grid-template-columns:1fr 1fr}.s-blue{grid-column:1/-1}
+  .state .wrap,.work .wrap{grid-template-columns:1fr}
+  .cols,.more{grid-template-columns:1fr}.more>*{border-right:0;border-bottom:1px solid var(--line)}
+  .act .wrap,.contact .wrap{grid-template-columns:1fr}
+  .act figcaption{left:0}
+  .proc ol{grid-template-columns:1fr 1fr;row-gap:34px}
+}
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr}.card{min-height:300px}
+  .strip{grid-template-columns:1fr}.s-photo{min-height:220px}
+  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto}
+  .mosaic figure{grid-column:auto!important;grid-row:auto!important;aspect-ratio:4/5}
+  .mosaic .m9{display:none}
+  .steps{grid-template-columns:1fr}
+  .proc ol{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  .state .after{margin-left:0}
+}
+</style>
 </head>
 <body>
 
-<a href="#main" class="re-skip" data-en="Skip to content">Saltar al contenido</a>
+<a class="skip" href="#main" data-en="Skip to content">Saltar al contenido</a>
 
-<!-- ░░ NAV ░░ -->
-<nav class="re-nav">
-  <div class="re-nav-inner">
-    <a href="#inicio" class="re-logo" aria-label="Ricardo Events">
-      <video autoplay muted loop playsinline preload="auto" poster="images/opt/logo-anim-poster.webp" aria-hidden="true">
-        <source src="images/logo-anim.mp4" type="video/mp4">
-      </video>
-    </a>
-    <ul class="re-navlinks">
-      <li><a href="#eventos"   class="re-navlink" data-en="Work">Trabajo</a></li>
-      <li><a href="#activaciones" class="re-navlink" data-en="Activations">Activaciones</a></li>
-      <li><a href="#servicios" class="re-navlink" data-en="Services">Servicios</a></li>
-      <li><a href="#proceso" class="re-navlink" data-en="Process">Proceso</a></li>
-      <li><a href="#contacto"  class="re-navlink" data-en="Contact">Contacto</a></li>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#inicio" aria-label="Ricardo Events"><img src="images/opt/logo-dark-crop.webp" alt="Ricardo Events" width="1000" height="267"></a>
+    <ul>
+      <li><a href="#trabajo" data-en="Work">Trabajo</a></li>
+      <li><a href="#servicios" data-en="Services">Servicios</a></li>
+      <li><a href="#activaciones" data-en="Activations">Activaciones</a></li>
+      <li><a href="#proceso" data-en="Process">Proceso</a></li>
+      <li><a href="#contacto" data-en="Contact">Contacto</a></li>
     </ul>
-    <div class="re-nav-right">
-      <div class="re-lang">
-        <button type="button" data-lang-btn="es" aria-pressed="true"  aria-label="Español">ES</button>
-        <span class="re-lang-sep">/</span>
-        <button type="button" data-lang-btn="en" aria-pressed="false" aria-label="English">EN</button>
-      </div>
-      <a href="#contacto" class="re-nav-cta" data-en="Request a proposal">Solicitar propuesta</a>
-      <button type="button" class="re-burger" id="reBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="reDrawer">&#8801;</button>
-    </div>
+    <div class="lang"><button type="button" data-lang-btn="es" aria-pressed="true" aria-label="Español">ES</button><span>/</span><button type="button" data-lang-btn="en" aria-pressed="false" aria-label="English">EN</button></div>
+    <a class="btn" href="#contacto" data-en="Request a proposal">Solicitar propuesta</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">&#8801;</button>
   </div>
-</nav>
-
-<!-- ░░ MOBILE DRAWER ░░ -->
-<div class="re-drawer" id="reDrawer" role="dialog" aria-modal="true" aria-label="Menú" data-en-aria="Menu">
-  <a href="#eventos"   class="re-drawer-link" data-drawer-link data-en="Work">Trabajo</a>
-  <a href="#activaciones" class="re-drawer-link" data-drawer-link data-en="Activations">Activaciones</a>
-  <a href="#servicios" class="re-drawer-link" data-drawer-link data-en="Services">Servicios</a>
-  <a href="#proceso" class="re-drawer-link" data-drawer-link data-en="Process">Proceso</a>
-  <a href="#contacto"  class="re-drawer-link" data-drawer-link data-en="Contact">Contacto</a>
-  <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
-     target="_blank" rel="noopener" class="re-drawer-wa" data-drawer-link>WhatsApp</a>
-</div>
+</header>
 
 <main id="main">
-<!-- ░░ HERO ░░ -->
-<section id="inicio" class="re-hero">
-  <div class="re-hero-grid">
-    <div class="re-hero-copy">
-      <div class="re-eyebrow-row">
-        <span class="re-rule"></span>
-        <span class="re-eyebrow" data-en="Event production · Santo Domingo, DR">Productora de eventos · Santo Domingo, RD</span>
-      </div>
-      <h1 class="re-h1">
-        <span data-en="We create">Creamos</span>
-        <span class="re-h1-underlined" data-en="Experiences.">Experiencias.<span class="re-underline"></span></span>
-      </h1>
-      <p class="re-lead" data-en="Logistics, production and brand activations for companies and event organisers in the Dominican Republic. Creators of Maison Grand Prix.">Logística, producción y activaciones de marca para empresas y organizadores en República Dominicana. Creadores de Maison Grand Prix.</p>
-      <div class="re-hero-ctas">
-        <a href="#contacto" class="re-btn re-btn-black" data-en="Request a proposal →">Solicitar propuesta →</a>
-        <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
-           target="_blank" rel="noopener" class="re-btn re-btn-outline">WhatsApp</a>
-      </div>
-    </div>
-    <div class="re-hero-media">
-      <div class="re-hero-img"></div>
-      <div class="re-hero-scan"></div>
-      <div class="re-hero-caption"><span>Padel Fest · Santo Domingo · Logística</span></div>
+<section class="hero" id="inicio">
+  <div class="hero-bg" role="img" aria-label="Invitados en Maison Grand Prix"></div>
+  <div class="hero-in">
+    <h1 data-en="We create&lt;br&gt;experiences.">Creamos<br>experiencias.</h1>
+    <p data-en="&lt;b&gt;Event production · Santo Domingo, DR&lt;/b&gt;Logistics, production and brand activations for companies and event organisers in the Dominican Republic. Creators of Maison Grand Prix."><b>Productora de eventos · Santo Domingo, RD</b>Logística, producción y activaciones de marca para empresas y organizadores en República Dominicana. Creadores de Maison Grand Prix.</p>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="s-date">
+    <span class="n">01/11</span>
+    <strong>Maison Grand Prix</strong>
+    <span data-en="Mexico City Edition. Cielo Room, Weston Suites. Our own event.">Mexico City Edition. Cielo Room, Weston Suites. Evento propio.</span>
+  </div>
+  <a class="s-photo" href="#trabajo" aria-label="Ver Maison Grand Prix"><img src="images/opt/room.webp" alt="Pantalla LED de Maison Grand Prix en el Cielo Room" loading="lazy"></a>
+  <div class="s-blue">
+    <h2 data-en="Brand activations">Activaciones de marca</h2>
+    <p data-en="We put the brand in people&#x27;s hands: the idea, the experience made to measure and the operation on the day.">Ponemos la marca en manos del público: la idea, la experiencia a medida y la operación el día del evento.</p>
+    <a href="#activaciones" data-en="See the Cadillac case →">Ver el caso Cadillac →</a>
+  </div>
+</div>
+
+<section class="state">
+  <div class="wrap">
+    <div class="side"><div class="tag" data-en="Approach">Enfoque</div><small data-en="For brands that want to be present at events, and for organisers who need everything to run.">Para marcas que quieren estar presentes en eventos y para organizadores que necesitan que todo funcione.</small></div>
+    <div>
+      <h2 class="rise" data-en="We produce events for &lt;span class=&quot;hl&quot;&gt;brands&lt;/span&gt; and organisers. Concept, production, design and &lt;span class=&quot;hl&quot;&gt;logistics&lt;/span&gt; with one team in charge.">Producimos eventos para <span class="hl">marcas</span> y organizadores. Concepto, producción, diseño y <span class="hl">logística</span> con un solo equipo a cargo.</h2>
+      <p class="after" data-en="One point of contact for everything: from the brief to the last guest leaving the room.">Un solo contacto para todo: del brief al último invitado que sale del salón.</p>
     </div>
   </div>
 </section>
 
-<!-- ░░ EVENTOS ░░ -->
-<section id="eventos" class="re-events-sec">
-  <div class="re-sec-head">
-    <div>
-      <div class="re-eyebrow-blue" data-en="Portfolio">Portafolio</div>
-      <h2 class="re-h2 re-rise" data-en="Our work">Nuestro trabajo</h2>
+<section class="work" id="trabajo">
+  <div class="wrap">
+    <div class="side"><div class="tag" data-en="Work">Trabajo</div><small data-en="Maison Grand Prix, our own event. November 1, 2026.">Maison Grand Prix, nuestro evento propio. 1 de noviembre de 2026.</small></div>
+    <div class="grid">
+      <article class="card wide rise">
+        <img src="images/opt/guests.webp" alt="Invitados en Maison Grand Prix, Cielo Room del Weston Suites" loading="lazy">
+        <div>
+          <h3>Maison Grand Prix · Mexico City Edition</h3>
+          <p data-en="The Formula 1 Mexico City Grand Prix watch party, built from scratch by Ricardo Events: we came up with the concept, designed the brand and every piece, produced the room and ran the logistics on the day.">La watch party del Gran Premio de México de Fórmula 1, creada desde cero por Ricardo Events: pensamos el concepto, diseñamos la marca y cada pieza, produjimos el salón y llevamos la logística del día.</p>
+          <ul class="chips"><li data-en="Concept">Concepto</li><li data-en="Production">Producción</li><li data-en="Design">Diseño</li><li data-en="Logistics">Logística</li></ul>
+        </div>
+      </article>
+      <article class="card rise">
+        <img src="images/opt/play1.webp" alt="Invitada jugando en la activación de Cadillac" loading="lazy" style="object-position:50% 30%">
+        <div><h3 data-en="Activations">Activaciones</h3><p data-en="Brand games run on site throughout the event.">Juegos de marca operados en sitio durante todo el evento.</p></div>
+      </article>
+      <article class="card rise">
+        <img src="images/opt/arch.webp" alt="Arco de entrada de Maison Grand Prix con la gráfica de Cadillac" loading="lazy">
+        <div><h3 data-en="Entrance and graphics">Entrada y gráfica</h3><p data-en="The arch, the table tents and every piece, designed for the event.">El arco, los table tents y cada pieza, diseñados para el evento.</p></div>
+      </article>
+      <article class="card wide rise">
+        <img src="images/opt/escalade.webp" alt="Cadillac Escalade en exhibición en la entrada" loading="lazy" style="object-position:50% 60%">
+        <div><h3 data-en="Cadillac display">Exhibición Cadillac</h3><p data-en="The Escalade at the entrance of Weston Suites, part of the sponsor&#x27;s setup.">La Escalade en la entrada del Weston Suites, parte del montaje del patrocinador.</p></div>
+      </article>
     </div>
-    <div class="re-count" data-en="02 events · 2026">02 eventos · 2026</div>
-  </div>
-
-  <div class="re-events">
-    <article class="re-event re-event-1">
-      <div class="re-event-media">
-        <img class="re-event-img" src="images/opt/padel-1.webp" alt="Padel Fest Santo Domingo, mayo 2026" loading="lazy" decoding="async" />
-      </div>
-      <div class="re-event-body">
-        <div class="re-event-top">
-          <span class="re-badge re-badge-done" data-en="Delivered">Realizado</span>
-          <span class="re-event-num">01</span>
-        </div>
-        <div>
-          <div class="re-event-date" data-en="May 8–10, 2026">Mayo 8–10, 2026</div>
-          <h3 class="re-event-title">Padel Fest · Santo Domingo</h3>
-          <p class="re-event-desc" data-en="Tournament logistics. 200 players.">Logística del torneo. 200 participantes.</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="re-event re-event-2">
-      <div class="re-event-media">
-        <img class="re-event-img" src="images/opt/mgp-sala.webp" alt="Invitados en Maison Grand Prix, Cielo Room del Weston Suites" loading="lazy" decoding="async" />
-      </div>
-      <div class="re-event-body">
-        <div class="re-event-top">
-          <span class="re-badge re-badge-done" data-en="Delivered · Our own event">Realizado · Evento propio</span>
-          <span class="re-event-num">02</span>
-        </div>
-        <div>
-          <div class="re-event-date" data-en="November 1, 2026 · Cielo Room, Weston Suites">Noviembre 1, 2026 · Cielo Room, Weston Suites</div>
-          <h3 class="re-event-title">Maison Grand Prix · Mexico City Edition</h3>
-          <p class="re-event-desc" data-en="The Formula 1 Mexico City Grand Prix watch party, built from scratch by Ricardo Events: we came up with the concept, designed the brand and every piece, produced the room and ran the logistics on the day.">La watch party del Gran Premio de México de Fórmula 1, creada desde cero por Ricardo Events: pensamos el concepto, diseñamos la marca y cada pieza, produjimos el salón y llevamos la logística del día.</p>
-          <ul class="re-chips" aria-label="La experiencia" data-en-aria="The experience">
-            <li class="re-chip" data-en="Concept">Concepto</li>
-            <li class="re-chip" data-en="Production">Producción</li>
-            <li class="re-chip" data-en="Design">Diseño</li>
-            <li class="re-chip" data-en="Logistics">Logística</li>
-          </ul>
-          <a class="re-event-link" href="#activaciones" data-en="See the Cadillac activation →">Ver la activación con Cadillac →</a>
-        </div>
-      </div>
-    </article>
-
   </div>
 </section>
 
-<!-- ░░ ACTIVACIONES ░░ -->
-<section id="activaciones" class="re-act-sec">
-  <div class="re-act">
-    <div>
-      <div class="re-eyebrow-blue" data-en="Brand activations">Activaciones de marca</div>
-      <h2 class="re-h2 re-rise" data-en="Brands people play with">Marcas que se juegan</h2>
-      <p class="re-act-lead" data-en="We design activations that put a brand in people's hands: an idea tied to the brand, the experience designed to measure and the operation on the day, inside our events or anyone else's.">Diseñamos activaciones que ponen la marca en manos del público: una idea ligada a la marca, la experiencia diseñada a medida y la operación el día del evento, dentro de nuestros eventos o de otros.</p>
+<section class="coll">
+  <p class="lead" data-en="Maison Grand Prix · Nov 1, 2026">Maison Grand Prix · 1 nov 2026</p>
+  <h2 class="rise" data-en="How it went">Así se vivió</h2>
+  <div class="mosaic">
+    <figure class="m1"><img src="images/opt/g4.webp" alt="Invitados en el salón" loading="lazy"></figure>
+    <figure class="m2"><img src="images/opt/redbull.webp" alt="Invitado con una lata de Red Bull" loading="lazy"></figure>
+    <figure class="m3"><img src="images/opt/g3.webp" alt="Invitada con una gorra de Cadillac" loading="lazy" style="object-position:50% 20%"></figure>
+    <figure class="m4"><img src="images/opt/tent.webp" alt="Table tent y menú de Maison Grand Prix" loading="lazy" style="object-position:80% 50%"></figure>
+    <figure class="m5"><img src="images/opt/g2.webp" alt="Invitadas conversando" loading="lazy"></figure>
+    <figure class="m6"><img src="images/opt/play2.webp" alt="Invitado en el 10 Second Challenge" loading="lazy"></figure>
+    <figure class="m7"><img src="images/opt/photoop.webp" alt="Invitados en el photo opportunity" loading="lazy" style="object-position:50% 30%"></figure>
+    <figure class="m8"><img src="images/opt/kinnox.webp" alt="Invitado con una canasta de Kinnox" loading="lazy" style="object-position:50% 20%"></figure>
+    <figure class="m9"><img src="images/opt/host.webp" alt="El host entrevista a una invitada" loading="lazy"></figure>
+  </div>
+  <h2 class="rise" style="font-size:clamp(1.8rem,3.6vw,3rem)" data-en="A house for race day">Una casa para el día de carrera</h2>
+  <p class="lead" style="margin-top:12px" data-en="LED screen, live DJ, games with the host and an after party.">Pantalla LED, DJ en vivo, dinámicas con host y after party.</p>
+</section>
 
-      <div class="re-case">
-        <div class="re-case-top">
-          <span class="re-case-label" data-en="Case · Cadillac × Maison Grand Prix">Caso · Cadillac × Maison Grand Prix</span>
-        </div>
-        <h3>10 Second Challenge</h3>
-        <p data-en="For Cadillac at Maison Grand Prix we set up the 10 Second Challenge: stop the clock at exactly 10 seconds. We tied it to the event's concept, “You’re officially on the grid”, designed its graphics in Cadillac's look and ran it on site.">Para Cadillac en Maison Grand Prix montamos el 10 Second Challenge: detener el reloj en exactamente 10 segundos. Lo integramos al concepto del evento, “You’re officially on the grid”, diseñamos su gráfica con la imagen de Cadillac y lo operamos en sitio.</p>
-      </div>
-
-      <div class="re-act-steps">
-        <div class="re-act-step"><b data-en="01 · Idea">01 · Idea</b><span data-en="A concept that makes sense for the occasion.">Un concepto que tiene sentido para la ocasión.</span></div>
-        <div class="re-act-step"><b data-en="02 · Build">02 · Producción</b><span data-en="The game, the graphics and the setup, adapted to the brand.">El juego, la gráfica y el montaje, adaptados a la marca.</span></div>
-        <div class="re-act-step"><b data-en="03 · On site">03 · En sitio</b><span data-en="We run it on the day, with the brand front and centre.">La operamos el día del evento, con la marca al frente.</span></div>
-      </div>
-
-      <div class="re-act-ctas">
-        <a href="#contacto" class="re-btn re-btn-black" data-en="Plan an activation →">Cotizar una activación →</a>
-      </div>
+<section id="servicios">
+  <div class="serv-head"><div class="wrap">
+    <h2 data-en="What we handle">Lo que hacemos</h2>
+    <p data-en="Three ways to work with us, inside our events or yours.">Tres formas de trabajar con nosotros, dentro de nuestros eventos o del tuyo.</p>
+  </div></div>
+  <div class="cols">
+    <div class="col c1">
+      <h3 data-en="Logistics">Logística</h3>
+      <div class="pola"><img src="images/opt/team.webp" alt="Equipo de Ricardo Events en Maison Grand Prix" loading="lazy"></div>
+      <strong data-en="Every piece in place, on time">Cada pieza en su lugar, a tiempo</strong>
+      <p data-en="Setup, vendors, schedules and on-site staff.">Montaje, proveedores, horarios y personal en sitio.</p>
+      <a class="mk" href="#contacto" data-en="Coordinate my event">Coordinar mi evento</a>
     </div>
+    <div class="col c2">
+      <h3 data-en="Activations">Activaciones</h3>
+      <div class="pola"><img src="images/opt/play3.webp" alt="Invitada jugando en una activación" loading="lazy" style="object-position:50% 30%"></div>
+      <strong data-en="The brand in people&#x27;s hands">La marca en manos del público</strong>
+      <p data-en="Experiences that connect a brand with its audience, inside or outside an event.">Experiencias que conectan la marca con su audiencia, dentro o fuera de un evento.</p>
+      <a class="mk" href="#contacto" data-en="Plan an activation">Cotizar una activación</a>
+    </div>
+    <div class="col c3">
+      <h3 data-en="Production">Producción</h3>
+      <div class="pola"><img src="images/opt/dj.webp" alt="Tarima y pantalla LED durante el evento" loading="lazy"></div>
+      <strong data-en="One team in charge of everything">Un solo equipo a cargo de todo</strong>
+      <p data-en="Concept, planning, vendors and on-site operation.">Concepto, planificación, proveedores y operación en sitio.</p>
+      <a class="mk" href="#contacto" data-en="Produce my event">Producir mi evento</a>
+    </div>
+  </div>
+  <div class="more">
+    <div><h3 data-en="Sports tournaments">Torneos deportivos</h3><p data-en="Brackets, referees, awards and player logistics.">Bracket, arbitraje, premiación y logística de participantes.</p></div>
+    <div><h3 data-en="Festivals">Festivales</h3><p data-en="Stages, permits, security and crowd experience.">Escenarios, permisos, seguridad y experiencia del público.</p></div>
+    <a href="#contacto"><h3 data-en="Another kind of event?">¿Otro tipo de evento?</h3><p data-en="Get in touch. →">Escríbenos. →</p></a>
+  </div>
+</section>
 
-    <figure class="re-act-figure re-rise">
-      <img src="images/opt/mgp-10s.webp" width="1080" height="1616" loading="lazy" decoding="async"
-           alt="El reloj del 10 Second Challenge marcando 10.0000, con la gráfica You're officially on the grid de Cadillac" />
-      <figcaption data-en="10 Second Challenge · Cadillac × Maison Grand Prix">10 Second Challenge · Cadillac × Maison Grand Prix</figcaption>
+<section class="act" id="activaciones">
+  <div class="wrap">
+    <div>
+      <span class="note" data-en="Real case ↓">Caso real ↓</span>
+      <div class="tag">Cadillac × Maison Grand Prix</div>
+      <h2 class="rise">10 Second Challenge</h2>
+      <p data-en="For Cadillac at Maison Grand Prix we set up the 10 Second Challenge: stop the clock at exactly 10 seconds. We tied it to the event&#x27;s concept, “You’re officially on the grid”, designed its graphics in Cadillac&#x27;s look and ran it on site.">Para Cadillac en Maison Grand Prix montamos el 10 Second Challenge: detener el reloj en exactamente 10 segundos. Lo integramos al concepto del evento, “You’re officially on the grid”, diseñamos su gráfica con la imagen de Cadillac y lo operamos en sitio.</p>
+      <div class="steps">
+        <div><b>Idea</b><span data-en="A concept that makes sense for the occasion.">Un concepto que tiene sentido para la ocasión.</span></div>
+        <div><b data-en="Production">Producción</b><span data-en="The game, the graphics and the setup, adapted to the brand.">El juego, la gráfica y el montaje, adaptados a la marca.</span></div>
+        <div><b data-en="On site">En sitio</b><span data-en="We run it on the day, with the brand front and centre.">La operamos el día del evento, con la marca al frente.</span></div>
+      </div>
+      <a class="btn blue" href="#contacto" data-en="Plan an activation →">Cotizar una activación →</a>
+    </div>
+    <figure class="rise">
+      <img src="images/opt/clock.webp" alt="El reloj del 10 Second Challenge marcando 10.0000" loading="lazy">
+      <figcaption data-en="10.0000 · Right on the mark">10.0000 · En el punto</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ░░ SERVICIOS ░░ -->
-<section id="servicios" class="re-services-sec">
-  <div style="max-width:var(--max-w); margin:0 auto">
-    <div class="re-services-head">
-      <div>
-        <div class="re-eyebrow-blue" data-en="Services">Servicios</div>
-        <h2 class="re-h2 re-rise" data-en="What we handle">Lo que hacemos</h2>
-      </div>
-      <p class="re-services-intro" data-en="For brands that want to be present at events, and for organisers who need everything to run.">Para marcas que quieren estar presentes en eventos y para organizadores que necesitan que todo funcione.</p>
-    </div>
-
-    <div class="re-services">
-      <div class="re-service re-rise">
-        <span class="re-service-num">01</span>
-        <h3 data-en="Event logistics">Logística de eventos</h3>
-        <p data-en="Setup, vendors, schedules and on-site staff. Every piece in place, on time.">Montaje, proveedores, horarios y personal en sitio. Cada pieza en su lugar, a tiempo.</p>
-      </div>
-      <div class="re-service re-rise">
-        <span class="re-service-num">02</span>
-        <h3 data-en="Brand activations">Activaciones de marca</h3>
-        <p data-en="Experiences that connect a brand with its audience, inside or outside an event.">Experiencias que conectan la marca con su audiencia, dentro o fuera de un evento.</p>
-      </div>
-      <div class="re-service re-rise">
-        <span class="re-service-num">03</span>
-        <h3 data-en="Event production">Producción de eventos</h3>
-        <p data-en="Concept, planning, vendors and on-site operation. One team in charge of everything.">Concepto, planificación, proveedores y operación en sitio. Un solo equipo a cargo de todo.</p>
-      </div>
-      <div class="re-service re-rise">
-        <span class="re-service-num">04</span>
-        <h3 data-en="Sports tournaments">Torneos deportivos</h3>
-        <p data-en="Brackets, referees, awards and player logistics.">Bracket, arbitraje, premiación y logística de participantes.</p>
-      </div>
-      <div class="re-service re-rise">
-        <span class="re-service-num">05</span>
-        <h3 data-en="Festivals">Festivales</h3>
-        <p data-en="Stages, permits, security and crowd experience.">Escenarios, permisos, seguridad y experiencia del público.</p>
-      </div>
-      <a href="#contacto" class="re-service-cta re-rise">
-        <span class="re-service-num">06</span>
-        <div>
-          <h3 data-en="Another kind of event?">¿Otro tipo de evento?</h3>
-          <p data-en="Get in touch. →">Escríbenos. →</p>
-        </div>
-      </a>
-    </div>
+<section class="proc" id="proceso">
+  <div class="wrap">
+    <h2 data-en="How we work">Cómo trabajamos</h2>
+    <ol>
+      <li><h3>Brief</h3><p data-en="You tell us about the event: date, venue, audience and budget.">Nos cuentas el evento: fecha, lugar, público y presupuesto.</p></li>
+      <li><h3 data-en="Proposal">Propuesta</h3><p data-en="We send the scope and the cost, in writing.">Te enviamos el alcance y el costo, por escrito.</p></li>
+      <li><h3 data-en="Production">Producción</h3><p data-en="We coordinate vendors, setup and schedules. One point of contact for everything.">Coordinamos proveedores, montaje y horarios. Un solo contacto para todo.</p></li>
+      <li><h3 data-en="On site">En sitio</h3><p data-en="Our team runs the event from doors open to close.">Nuestro equipo opera el evento de principio a fin.</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- ░░ PROCESO ░░ -->
-<section id="proceso" class="re-process-sec">
-  <div class="re-process-inner">
-    <div class="re-eyebrow-blue" data-en="Process">Proceso</div>
-    <h2 class="re-h2 re-rise" data-en="How we work">Cómo trabajamos</h2>
-    <div class="re-process">
-      <div class="re-process-step re-rise"><b>01</b><h3 data-en="Brief">Brief</h3><p data-en="You tell us about the event: date, venue, audience and budget.">Nos cuentas el evento: fecha, lugar, público y presupuesto.</p></div>
-      <div class="re-process-step re-rise"><b>02</b><h3 data-en="Proposal">Propuesta</h3><p data-en="We send the scope and the cost, in writing.">Te enviamos el alcance y el costo, por escrito.</p></div>
-      <div class="re-process-step re-rise"><b>03</b><h3 data-en="Production">Producción</h3><p data-en="We coordinate vendors, setup and schedules. One point of contact for everything.">Coordinamos proveedores, montaje y horarios. Un solo contacto para todo.</p></div>
-      <div class="re-process-step re-rise"><b>04</b><h3 data-en="On site">En sitio</h3><p data-en="Our team runs the event from doors open to close.">Nuestro equipo opera el evento de principio a fin.</p></div>
-    </div>
-  </div>
+<section class="band">
+  <img src="images/opt/tent.webp" alt="" loading="lazy">
+  <div><h2 data-en="Got an event in mind?">¿Tienes un evento en mente?</h2><a class="btn" href="#contacto" data-en="Request a proposal →">Solicitar propuesta →</a></div>
 </section>
 
-<!-- ░░ CTA BAND ░░ -->
-<div class="re-cta-band">
-  <div class="re-cta-pattern"></div>
-  <div class="re-cta-inner">
-    <h2 class="re-cta-h2" data-en="Got an event in mind?">¿Tienes un evento en mente?</h2>
-    <a href="#contacto" class="re-btn re-btn-white" data-en="Request a proposal →">Solicitar propuesta →</a>
-  </div>
-</div>
-
-<!-- ░░ CONTACTO ░░ -->
-<section id="contacto" class="re-contact">
-  <div class="re-contact-grid">
+<section class="contact" id="contacto">
+  <div class="wrap">
     <div>
-      <div class="re-contact-eyebrow" data-en="Contact">Contacto</div>
-      <h2 class="re-contact-h2 re-rise" data-en="Tell us about the event. We reply with a proposal.">Cuéntanos del evento. Te respondemos con una propuesta.</h2>
-      <p class="re-contact-p" data-en="Production, logistics, brand activations or general enquiries. The more detail, the better the proposal.">Producción, logística, activaciones de marca o información general. Mientras más detalle, mejor la propuesta.</p>
-      <div class="re-contact-actions">
-        <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
-           target="_blank" rel="noopener" class="re-btn re-btn-ghost">WhatsApp</a>
-        <a href="https://www.instagram.com/ricardo__events" target="_blank" rel="noopener" class="re-btn re-btn-ghost">@ricardo__events</a>
+      <div class="tag" data-en="Contact">Contacto</div>
+      <h2 data-en="Tell us about the event. We reply with a proposal.">Cuéntanos del evento. Te respondemos con una propuesta.</h2>
+      <p data-en="Production, logistics, brand activations or general enquiries. The more detail, the better the proposal.">Producción, logística, activaciones de marca o información general. Mientras más detalle, mejor la propuesta.</p>
+      <div class="acts">
+        <a class="btn line" href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn line" href="https://www.instagram.com/ricardo__events" target="_blank" rel="noopener">@ricardo__events</a>
       </div>
-      <div class="re-contact-meta">Santo Domingo · República Dominicana</div>
+      <p data-en="Santo Domingo · Dominican Republic">Santo Domingo · República Dominicana</p>
     </div>
-
-    <div>
-      <form class="re-form" id="reForm" action="https://formspree.io/f/xykayjkq" method="POST">
-        <div class="re-form-row">
-          <div class="re-field">
-            <label for="f-nombre" data-en="Name *">Nombre *</label>
-            <input id="f-nombre" type="text" name="nombre" required placeholder="Tu nombre" data-en="Your name" />
-          </div>
-          <div class="re-field">
-            <label for="f-empresa" data-en="Company">Empresa</label>
-            <input id="f-empresa" type="text" name="empresa" placeholder="Opcional" data-en="Optional" />
-          </div>
-        </div>
-        <div class="re-field">
-          <label for="f-email" data-en="Email *">Email *</label>
-          <input id="f-email" type="email" name="email" required placeholder="tu@email.com" data-en="you@email.com" />
-        </div>
-        <div class="re-form-row">
-          <div class="re-field">
-            <label for="f-tipo" data-en="Enquiry type">Tipo de consulta</label>
-            <select id="f-tipo" name="tipo">
-              <option value="" data-en="Select...">Seleccionar...</option>
-              <option value="Producción de evento" data-en="Event production">Producción de evento</option>
-              <option value="Logística" data-en="Logistics">Logística</option>
-              <option value="Activación de marca" data-en="Brand activation">Activación de marca</option>
-              <option value="Información general" data-en="General information">Información general</option>
-            </select>
-          </div>
-          <div class="re-field">
-            <label for="f-fecha" data-en="Tentative date">Fecha tentativa</label>
-            <input id="f-fecha" type="text" name="fecha" placeholder="Mes / año" data-en="Month / year" />
-          </div>
-        </div>
-        <div class="re-field">
-          <label for="f-mensaje" data-en="Details *">Detalles *</label>
-          <textarea id="f-mensaje" name="mensaje" required placeholder="Cuéntanos sobre tu proyecto..." data-en="Tell us about your project..."></textarea>
-        </div>
-        <button type="submit" class="re-submit" data-en="Send message →">Enviar mensaje →</button>
-      </form>
-      <div class="re-form-ok" id="reFormOk">
-        <strong data-en="Message sent.">Mensaje enviado.</strong>
-        <span data-en="We'll be in touch shortly.">Nos pondremos en contacto pronto.</span>
-      </div>
-    </div>
+    <form id="form" action="https://formspree.io/f/xykayjkq" method="POST">
+      <label for="f-nombre"><span data-en="Name *">Nombre *</span><input id="f-nombre" name="nombre" required placeholder="Tu nombre" data-en-ph="Your name" autocomplete="name"></label>
+      <label for="f-empresa"><span data-en="Company">Empresa</span><input id="f-empresa" name="empresa" placeholder="Opcional" data-en-ph="Optional" autocomplete="organization"></label>
+      <label class="full" for="f-email"><span>Email *</span><input id="f-email" type="email" name="email" required placeholder="tu@email.com" data-en-ph="you@email.com" autocomplete="email"></label>
+      <label for="f-tipo"><span data-en="Enquiry type">Tipo de consulta</span><select id="f-tipo" name="tipo">
+        <option value="" data-en="Select...">Seleccionar...</option>
+        <option value="Producción de evento" data-en="Event production">Producción de evento</option>
+        <option value="Logística" data-en="Logistics">Logística</option>
+        <option value="Activación de marca" data-en="Brand activation">Activación de marca</option>
+        <option value="Información general" data-en="General information">Información general</option>
+      </select></label>
+      <label for="f-fecha"><span data-en="Tentative date">Fecha tentativa</span><input id="f-fecha" name="fecha" placeholder="Mes / año" data-en-ph="Month / year"></label>
+      <label class="full" for="f-mensaje"><span data-en="Details *">Detalles *</span><textarea id="f-mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..." data-en-ph="Tell us about your project..."></textarea></label>
+      <button class="btn blue" type="submit" id="send" data-en="Send message →">Enviar mensaje →</button>
+      <p class="demo" id="formMsg" role="status" hidden></p>
+    </form>
+    <div class="ok" id="formOk" hidden><h3 data-en="Message sent.">Mensaje enviado.</h3><p data-en="We'll be in touch shortly.">Nos pondremos en contacto pronto.</p></div>
   </div>
 </section>
 </main>
 
-<!-- ░░ FOOTER ░░ -->
-<footer class="re-footer">
-  <div class="re-footer-inner">
-    <img src="images/opt/logo-dark-crop.webp" alt="Ricardo Events" loading="lazy" decoding="async" />
-    <div class="re-footer-links">
-      <a href="https://www.instagram.com/ricardo__events" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">WhatsApp</a>
-    </div>
-    <div class="re-footer-copy">© <span id="reYear">2026</span> Ricardo Events · Santo Domingo, República Dominicana</div>
-  </div>
-</footer>
+<footer><div class="wrap">
+  <img src="images/opt/logo-dark-crop.webp" alt="Ricardo Events" width="1000" height="267">
+  <span class="fl"><a href="https://www.instagram.com/ricardo__events" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/18092808874?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">WhatsApp</a></span>
+  <span>© <span id="yr">2026</span> Ricardo Events · Santo Domingo, República Dominicana</span>
+</div></footer>
 
 <script>
-(function () {
-  // nav logo animation: respect reduced-motion (the poster is the finished logo)
-  var nv = document.querySelector('.re-logo video');
-  if (nv && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { nv.removeAttribute('autoplay'); nv.pause(); }
-})();
-</script>
-<script>
-(function () {
-  // ── Date-driven states ────────────────────
-  // Any [data-until] block flips to "past" once that moment passes: its .only-upcoming
-  // nodes (and the block itself, if it carries the class) hide, its .only-past nodes show.
-  // Upcoming is the no-JS default, so the static HTML stays correct until the event.
-  var now = Date.now();
-  document.querySelectorAll('[data-until]').forEach(function (block) {
-    var until = Date.parse(block.getAttribute('data-until'));
-    if (isNaN(until) || now < until) return;
-    block.classList.add('is-past');
-    var up = Array.prototype.slice.call(block.querySelectorAll('.only-upcoming'));
-    if (block.classList.contains('only-upcoming')) up.push(block);
-    up.forEach(function (el) { el.hidden = true; });
-    block.querySelectorAll('.only-past').forEach(function (el) { el.hidden = false; });
-  });
-  var yr = document.getElementById('reYear');
-  if (yr) yr.textContent = String(new Date().getFullYear());
+(function(){
+var nav=document.getElementById('nav'),b=document.getElementById('burger'),lang='es';
+function menu(o){nav.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.innerHTML=o?'&times;':'&#8801;';document.body.style.overflow=o?'hidden':'';
+  b.setAttribute('aria-label',o?(lang==='en'?'Close menu':'Cerrar menú'):(lang==='en'?'Open menu':'Abrir menú'))}
+b.addEventListener('click',function(){menu(!nav.classList.contains('open'))});
+nav.querySelectorAll('ul a').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open'))menu(false)});
+window.addEventListener('resize',function(){if(innerWidth>960&&nav.classList.contains('open'))menu(false)});
 
-  // ── ES / EN toggle ────────────────────────
-  var langNodes = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
-  function setLang(lang) {
-    langNodes.forEach(function (el) {
-      var isPh = el.hasAttribute('placeholder');
-      if (!el.dataset.es) el.dataset.es = isPh ? el.getAttribute('placeholder') : el.textContent;
-      var v = lang === 'en' ? el.dataset.en : el.dataset.es;
-      if (isPh) { el.setAttribute('placeholder', v); return; }
-      // keep decorative child elements (the h1 underline) instead of wiping them
-      var keep = el.querySelector(':scope > .re-underline');
-      el.textContent = v;
-      if (keep) el.appendChild(keep);
-    });
-    document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
-      b.setAttribute('aria-pressed', b.dataset.langBtn === lang ? 'true' : 'false');
-    });
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-en-aria]').forEach(function (el) {
-      if (!el.dataset.esAria) el.dataset.esAria = el.getAttribute('aria-label');
-      el.setAttribute('aria-label', lang === 'en' ? el.dataset.enAria : el.dataset.esAria);
-    });
-    var bg = document.getElementById('reBurger');
-    if (bg) {
-      var isOpen = document.body.classList.contains('re-menu-open');
-      bg.setAttribute('aria-label', lang === 'en' ? (isOpen ? 'Close menu' : 'Open menu') : (isOpen ? 'Cerrar menú' : 'Abrir menú'));
-    }
-    try { localStorage.setItem('re-lang', lang); } catch (e) {}
-  }
-  document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.dataset.langBtn); });
-  });
-  try {
-    var saved = localStorage.getItem('re-lang');
-    if (saved === 'en') setLang('en');
-  } catch (e) {}
+var rise=document.querySelectorAll('.rise');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});rise.forEach(function(el){io.observe(el)})}
+else rise.forEach(function(el){el.classList.add('in')});
 
-  // ── Mobile drawer ─────────────────────────
-  var burger = document.getElementById('reBurger');
-  var drawer = document.getElementById('reDrawer');
-  if (burger && drawer) {
-    var setOpen = function (open) {
-      document.body.classList.toggle('re-menu-open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-      burger.innerHTML = open ? '&times;' : '&#8801;';
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      var en = document.documentElement.lang === 'en';
-      burger.setAttribute('aria-label', open ? (en ? 'Close menu' : 'Cerrar menú') : (en ? 'Open menu' : 'Abrir menú'));
-    };
-    burger.addEventListener('click', function () {
-      setOpen(!document.body.classList.contains('re-menu-open'));
-    });
-    document.querySelectorAll('[data-drawer-link]').forEach(function (a) {
-      a.addEventListener('click', function () { setOpen(false); });
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && document.body.classList.contains('re-menu-open')) setOpen(false);
-    });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth >= 960 && document.body.classList.contains('re-menu-open')) setOpen(false);
-    });
-  }
+document.getElementById('yr').textContent=new Date().getFullYear();
 
-  // ── Scroll reveal ─────────────────────────
-  var rise = document.querySelectorAll('.re-rise');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    rise.forEach(function (el) { io.observe(el); });
-  } else {
-    rise.forEach(function (el) { el.classList.add('is-visible'); });
-  }
+// ES / EN
+var nodes=[].slice.call(document.querySelectorAll('[data-en]')),phs=[].slice.call(document.querySelectorAll('[data-en-ph]'));
+function setLang(l){lang=l;
+  nodes.forEach(function(el){if(el.dataset.es===undefined)el.dataset.es=el.innerHTML;el.innerHTML=l==='en'?el.dataset.en:el.dataset.es});
+  phs.forEach(function(el){if(!el.dataset.esPh)el.dataset.esPh=el.placeholder;el.placeholder=l==='en'?el.dataset.enPh:el.dataset.esPh});
+  document.querySelectorAll('[data-lang-btn]').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.langBtn===l?'true':'false')});
+  document.documentElement.lang=l;try{localStorage.setItem('re-lang',l)}catch(e){}}
+document.querySelectorAll('[data-lang-btn]').forEach(function(x){x.addEventListener('click',function(){setLang(x.dataset.langBtn)})});
+try{if(localStorage.getItem('re-lang')==='en')setLang('en')}catch(e){}
 
-  // ── Contact form ──────────────────────────
-  var form = document.getElementById('reForm');
-  var ok   = document.getElementById('reFormOk');
-  if (form && ok) {
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('.re-submit');
-      var label = btn.innerHTML;
-      btn.disabled = true;
-      var en = document.documentElement.lang === 'en';
-      btn.textContent = en ? 'Sending...' : 'Enviando...';
-      try {
-        var res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) { form.style.display = 'none'; ok.style.display = 'block'; return; }
-        throw new Error('bad status');
-      } catch (err) {
-        btn.disabled = false;
-        btn.innerHTML = label;
-        alert(en ? 'Something went wrong. Message us on WhatsApp and we will sort it out.'
-                 : 'Hubo un error. Escríbenos por WhatsApp e intentamos de nuevo.');
-      }
-    });
-  }
+// contact form
+var form=document.getElementById('form'),ok=document.getElementById('formOk'),msg=document.getElementById('formMsg'),btn=document.getElementById('send');
+form.addEventListener('submit',function(e){e.preventDefault();var label=btn.innerHTML;btn.disabled=true;msg.hidden=true;
+  btn.textContent=lang==='en'?'Sending...':'Enviando...';
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}}).then(function(res){
+    if(!res.ok)throw 0;form.hidden=true;ok.hidden=false;
+  }).catch(function(){btn.disabled=false;btn.innerHTML=label;msg.hidden=false;
+    msg.textContent=lang==='en'?'Something went wrong. Message us on WhatsApp and we will sort it out.':'Hubo un error. Escríbenos por WhatsApp e intentamos de nuevo.'});
+});
 })();
 </script>
 
